@@ -1,0 +1,10 @@
+Welcome to Talend Integration Factory!
+=====================================
+
+Talend Integration Factory (TIF) uses the industry leading open source 
+Apache Camel integration framework.
+
+The TIF distribution supplements the Apache Camel with support for 
+OSGi containers along with advanced examples.
+
+[TODO: hz]
