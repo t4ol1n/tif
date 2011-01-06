@@ -39,6 +39,7 @@
 
     <modules>
         <module>talend-if</module>
+         <module>examples</module>
     </modules>
 
     <build>
