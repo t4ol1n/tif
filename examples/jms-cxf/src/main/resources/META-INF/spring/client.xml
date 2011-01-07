@@ -18,10 +18,21 @@
 	<bean id="client" class="demo.jms_greeter.client.Client">
 		<property name="greeter" ref="greeterProxy"/>
 	</bean>
-		
+
 	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
 		<route>
 			<from uri="direct:greeterClientEndpoint" />
+			
+			<!-- The current soap/jms spec implementation in cxf requires the following headers to be set.
+				 We use the dsl to make caml jms compliant to the spec. This shows how you can easily 
+				 work around compatibility problems using camel -->
+			<setHeader headerName="SOAPJMS_contentType">
+				<constant>text/xml</constant>
+			</setHeader>
+			<setHeader headerName="SOAPJMS_requestURI">
+				<constant>jms://queue:test</constant>
+			</setHeader>
+
 			<to uri="jms:test.cxf.jmstransport.queue" />
 		</route>
 	</camelContext>
