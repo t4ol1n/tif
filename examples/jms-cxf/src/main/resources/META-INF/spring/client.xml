@@ -23,7 +23,10 @@
 		<route>
 			<from uri="direct:greeterClientEndpoint" />
 			
-			<!-- The current soap/jms spec implementation in cxf requires the following headers to be set.
+			<!-- The following headers are only necessary to show interoperation with the soap/jms
+				 example from Talend Service Factory. When testing against the server in this example
+				 they can be left out.
+				 The current soap/jms spec implementation in cxf requires the following headers to be set.
 				 We use the dsl to make caml jms compliant to the spec. This shows how you can easily 
 				 work around compatibility problems using camel -->
 			<setHeader headerName="SOAPJMS_contentType">
