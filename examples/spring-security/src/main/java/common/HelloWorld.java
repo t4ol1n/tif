@@ -32,9 +32,4 @@ public interface HelloWorld {
     @XmlJavaTypeAdapter(IntegerUserMapAdapter.class)
     Map<Integer, User> getUsers();
 
-    @POST
-    @Produces("text/xml")
-    @Consumes("text/xml")
-    @XmlJavaTypeAdapter(IntegerUserMapAdapter.class)
-    Map<Integer, User> echoUsers(@XmlJavaTypeAdapter(IntegerUserMapAdapter.class) Map<Integer, User> users);
 }

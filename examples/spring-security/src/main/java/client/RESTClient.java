@@ -4,209 +4,85 @@
 package client;
 
 import java.util.Map;
-import java.util.Properties;
 
 import javax.ws.rs.WebApplicationException;
-import javax.xml.namespace.QName;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.Service;
-import javax.xml.ws.soap.SOAPBinding;
-import javax.xml.ws.soap.SOAPFaultException;
 
+import junit.framework.Assert;
+
+import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.apache.cxf.jaxrs.client.WebClient;
+import org.apache.log4j.Logger;
 
 import common.HelloWorld;
 import common.User;
 import common.UserImpl;
 
 /**
- * Example showing JAX-RS and JAX-WS proxies making calls to JAX-RS and JAX-WS
- * services by relying on the same shared code making remote invocations.
+ * Uses a JAX-RS proxy to access a jaxrs server with several users and credentials.
+ * Depending on the user's roles the operation should work or be denied	
  */
 public final class RESTClient {
+	Logger log = Logger.getLogger(JaxWsClient.class);
+	final static String address = "http://localhost:9090/HelloWorld";
+	
 
-    private static final String PORT_PROPERTY = "http.port";
-    private static final int DEFAULT_PORT_VALUE = 8080;
+    public static void main(String[] args) throws Exception {
+    	System.out.println("Using CXF JAX-RS proxy to invoke on HelloWorld service");
+        RESTClient client = new RESTClient();
+        client.sayHelloAsAdmin();
+        client.sayHelloAsUser();
+    }
+	
+    public void sayHelloAsAdmin() throws Exception {
+        HelloWorld service = createServiceProxy("jim", "jimspassword");
+        System.out.println("Using HelloServiceRest with admin priviliges");
 
-    private static final String HTTP_PORT;
-    static {
-        Properties props = new Properties();
+        System.out.println("Asking the service to add a new user and also say hi");
         try {
-            props.load(RESTClient.class.getResourceAsStream("/client.properties"));
-        } catch (Exception ex) {
-            throw new RuntimeException("client.properties resource is not available");
+            System.out.println(service.sayHi("Barry"));
+            System.out.println(service.sayHiToUser(new UserImpl("Barry")));
+        } catch (WebApplicationException ex) {
+            throw new RuntimeException("Should be able to sayHi");
         }
-        HTTP_PORT = props.getProperty(PORT_PROPERTY);
+
+        System.out.println("Getting the list of existing users");
+        try {
+            Map<Integer, User> users = service.getUsers();
+            printUsers(users);
+        } catch (WebApplicationException ex) {
+            throw new RuntimeException("Admin should be able to invoke getUsers");
+        }
     }
+    
+    public void sayHelloAsUser() throws Exception {
+        HelloWorld service = createServiceProxy("bob", "bobspassword");
+        System.out.println("Using HelloServiceRest with user priviliges");
+        System.out.println("Getting the list of existing users");
+        try {
+        	Map<Integer, User> users = service.getUsers();
+            printUsers(users);
+            throw new RuntimeException("Only admin should be able to invoke getUsers");
+        } catch (WebApplicationException ex) {
+            Assert.assertEquals("403 response code is expected", 403, ex.getResponse().getStatus());
+            System.out.println("Access Denied : 403");
+        }
 
-    int port;
-
-    public RESTClient() {
-        this(getPort());
+        System.out.println("Asking the service to add a new user Barry and also say hi");
+        try {
+            System.out.println(service.sayHi("Barry"));
+            System.out.println(service.sayHiToUser(new UserImpl("Barry")));
+        } catch (WebApplicationException ex) {
+            throw new RuntimeException("Should be able to sayHi");
+        }
     }
-
-    public RESTClient(int port) {
-        this.port = port;
-    }
-
-    public void sayHelloRest() throws Exception {
-        final String address = "http://localhost:" + port + "/services/hello-rest";
-
-        System.out.println("Using CXF JAX-RS proxy to invoke on HelloWorld service");
-
-        // Admin
-        HelloWorld service = JAXRSClientFactory.create(address, HelloWorld.class, "admin", "admin", null);
+    
+	public HelloWorld createServiceProxy(String username, String password) {
+        HelloWorld service = JAXRSClientFactory.create(address, HelloWorld.class, username, password, null);
         WebClient.getConfig(service).getHttpConduit().getClient().setReceiveTimeout(100000000);
-        useHelloServiceRest(service, "Barry", true);
-
-        // User
-        service = JAXRSClientFactory.create(address, HelloWorld.class, "user", "user", null);
-
-        useHelloServiceRest(service, "Barry", false);
-    }
-
-    public void sayHelloSoap() throws Exception {
-        HelloWorld hw = createSoapService("admin", "admin");
-
-        // Admin
-        useHelloServiceSoap(hw, "Fred", true);
-
-        hw = createSoapService("user", "user");
-
-        // User
-        useHelloServiceSoap(hw, "Fred", false);
-
-    }
-
-    private HelloWorld createSoapService(String name, String password) throws Exception {
-        final QName serviceName = new QName("http://hello.com", "HelloWorld");
-        final QName portName = new QName("http://hello.com", "HelloWorldPort");
-        final String address = "http://localhost:" + port + "/services/hello-soap";
-
-        System.out.println("Using JAX-WS proxy to invoke on HelloWorld service");
-
-        Service service = Service.create(serviceName);
-        service.addPort(portName, SOAPBinding.SOAP11HTTP_BINDING, address);
-
-        HelloWorld hw = service.getPort(HelloWorld.class);
-
-        ((BindingProvider)hw).getRequestContext().put(BindingProvider.USERNAME_PROPERTY, name);
-        ((BindingProvider)hw).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, password);
-
-        return hw;
-    }
-
-    private void useHelloServiceRest(HelloWorld service, String user, boolean admin) {
-
-        System.out.println("Using HelloServiceRest with " + (admin ? "admin" : "user") + " priviliges");
-
-        System.out.println("Getting the list of existing users");
-        try {
-            printUsers(service.getUsers());
-            if (!admin) {
-                throw new RuntimeException("Only Admin can invoke getUsers");
-            }
-        } catch (WebApplicationException ex) {
-            if (admin) {
-                throw new RuntimeException("Admin can invoke getUsers, status " + ex.getResponse().getStatus());
-            }
-            if (ex.getResponse().getStatus() != 403) {
-                throw new RuntimeException("403 response code is expected");
-            }
-            System.out.println("Access Denied : 403");
-        }
-
-        System.out.println("Asking the service to add a new user " + user + " and also say hi");
-
-        try {
-            System.out.println(service.sayHi(user));
-            System.out.println(service.sayHiToUser(new UserImpl(user)));
-        } catch (WebApplicationException ex) {
-            throw new RuntimeException("Everyone can invoke sayHi and sayHiToUser");
-        }
-
-        System.out.println("Getting the list of existing users");
-
-        try {
-            Map<Integer, User> users = service.getUsers();
-            printUsers(users);
-            if (!admin) {
-                throw new RuntimeException("Only Admin can invoke getUsers");
-            }
-            System.out.println("Echoing the list of existing users");
-            printUsers(service.echoUsers(users));
-            if (!admin) {
-                throw new RuntimeException("Only Admin can invoke echoUsers");
-            }
-        } catch (WebApplicationException ex) {
-            if (admin) {
-                throw new RuntimeException("Admin can invoke getUsers and echoUsers");
-            }
-            if (ex.getResponse().getStatus() != 403) {
-                throw new RuntimeException("403 response code is expected");
-            }
-            System.out.println("Access Denied : 403");
-        }
-
-    }
-
-    private void useHelloServiceSoap(HelloWorld service, String user, boolean admin) {
-
-        System.out.println("Using HelloServiceSoap with " + (admin ? "admin" : "user") + " priviliges");
-
-        System.out.println("Getting the list of existing users");
-        try {
-            printUsers(service.getUsers());
-            if (!admin) {
-                throw new RuntimeException("Only Admin can invoke getUsers");
-            }
-        } catch (SOAPFaultException ex) {
-            if (admin) {
-                throw new RuntimeException("Admin can invoke getUsers");
-            }
-            if (!"Unauthorized".equals(ex.getMessage())) {
-                throw new RuntimeException("Unauthorized message is expected");
-            }
-            System.out.println("Access Denied : Unauthorized");
-        }
-
-        System.out.println("Asking the service to add a new user " + user + " and also say hi");
-
-        try {
-            System.out.println(service.sayHi(user));
-            System.out.println(service.sayHiToUser(new UserImpl(user)));
-        } catch (Exception ex) {
-            throw new RuntimeException("Everyone can invoke sayHi and sayHiToUser");
-        }
-
-        System.out.println("Getting the list of existing users");
-
-        try {
-            Map<Integer, User> users = service.getUsers();
-            printUsers(users);
-
-            if (!admin) {
-                throw new RuntimeException("Only Admin can invoke getUsers");
-            }
-
-            System.out.println("Echoing the list of existing users");
-
-            printUsers(service.echoUsers(users));
-            if (!admin) {
-                throw new RuntimeException("Only Admin can invoke echoUsers");
-            }
-        } catch (SOAPFaultException ex) {
-            if (admin) {
-                throw new RuntimeException("Admin can invoke getUsers and echoUsers");
-            }
-            if (!"Unauthorized".equals(ex.getMessage())) {
-                throw new RuntimeException("Unauthorized message is expected");
-            }
-            System.out.println("Access Denied : Unauthorized");
-        }
-
-    }
+        WebClient.getConfig(service).getOutInterceptors().add(new LoggingOutInterceptor());
+        return service;
+	}
 
     private void printUsers(Map<Integer, User> users) {
 
@@ -219,25 +95,5 @@ public final class RESTClient {
         }
     }
 
-    public static void main(String[] args) throws Exception {
 
-        RESTClient client = new RESTClient();
-
-        // uses CXF JAX-RS Proxy
-        client.sayHelloRest();
-
-        System.out.println();
-
-        // uses JAX-WS Client
-        client.sayHelloSoap();
-    }
-
-    private static int getPort() {
-        try {
-            return Integer.valueOf(HTTP_PORT);
-        } catch (NumberFormatException ex) {
-            // ignore
-        }
-        return DEFAULT_PORT_VALUE;
-    }
 }

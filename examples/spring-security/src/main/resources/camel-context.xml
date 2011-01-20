@@ -19,6 +19,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:spring-security="http://www.springframework.org/schema/security"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        
        xsi:schemaLocation="http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -29,14 +30,21 @@
           http://www.springframework.org/schema/security
 		  http://www.springframework.org/schema/security/spring-security.xsd
 		  http://cxf.apache.org/jaxws
-		  http://cxf.apache.org/schemas/jaxws.xsd">
+		  http://cxf.apache.org/schemas/jaxws.xsd
+          http://cxf.apache.org/jaxrs
+          http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <import resource="classpath:org/apache/camel/example/spring/security/common-security.xml"/>
+    <import resource="classpath:/common-security.xml"/>
     <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-camel.xml"/>
     
     <global-method-security jsr250-annotations="enabled" xmlns="http://www.springframework.org/schema/security"/>
+    
+    <!--
+          JAX-WS configurations
+     -->
     
     <endpoint 
 		address="camel://direct:customerServiceServerEndpoint"
@@ -45,6 +53,25 @@
 		
 	<bean id="customerServiceImpl" class="server.CustomerServiceImpl">
 	</bean>
+
+    <!--
+          JAX-RS configurations
+     -->
+
+     <jaxrs:server id="hello_rest" address="camel://direct:HelloWorldRestServerEndpoint">
+       <jaxrs:serviceBeans>
+         <ref bean="hello-world-bean"/>
+       </jaxrs:serviceBeans>
+       <jaxrs:features>
+         <bean class="org.apache.cxf.feature.LoggingFeature" />
+       </jaxrs:features>
+     </jaxrs:server>
+     
+     <bean id="hello-world-bean" class="server.HelloWorldImpl"/>
+    
+    <!--
+          Spring Security configurations
+     -->
     
     <bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
         <property name="allowIfAllAbstainDecisions" value="true"/>
@@ -55,52 +82,18 @@
         </property>
     </bean>
 
-    <!-- The Policy for checking the authentication role of ADMIN -->
-    <authorizationPolicy id="admin" access="ROLE_ADMIN"
-                         authenticationManager="authenticationManager"
-                         accessDecisionManager="accessDecisionManager"
-                         xmlns="http://camel.apache.org/schema/spring-security"/>
-
-    <!-- The Policy for checking the authentication role of USER -->
-    <authorizationPolicy id="user" access="ROLE_USER"
-                         xmlns="http://camel.apache.org/schema/spring-security"/>
-                         
-    <bean id="adminBean" class="server.ServerBean">
-    	
-    </bean>
+    <!--
+          Camel routes from addresses on the servlet to rest and jaxws servers
+     -->
+     
+     <bean id="stripPrefix" class="server.StripPrefixProcessor">
+     </bean>
 
     <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
-        <!-- Catch the authorization exception and set the Access Denied message back -->
-        <onException>
-            <exception>org.apache.camel.CamelAuthorizationException</exception>
-            <handled>
-                <constant>true</constant>
-            </handled>
-            <transform>
-                <simple>Access Denied with the Policy of ${exception.policyId} !</simple>
-            </transform>
-        </onException>
-
         <route>
-            <from uri="servlet:///user"/>
-            <!-- wrap the route in the policy which enforces security check -->
-            <policy ref="user">
-                <transform>
-                    <simple>Normal user can access this service</simple>
-                </transform>
-            </policy>
-        </route>
-        <route>
-            <from uri="servlet:///admin"/>
-            <bean ref="adminBean" />
-            <!-- wrap the route in the policy which enforces security check -->
-            
-<!--            <policy ref="admin">-->
-<!--            	-->
-<!--                <transform>-->
-<!--                    <simple>Call the admin operation OK</simple>-->
-<!--                </transform>-->
-<!--            </policy>-->
+            <from uri="servlet:///HelloWorld?matchOnUriPrefix=true"/>
+            <bean ref="stripPrefix"/>
+            <to uri="direct:HelloWorldRestServerEndpoint" />
         </route>
         <route>
             <from uri="servlet:///CustomerServicePort"/>

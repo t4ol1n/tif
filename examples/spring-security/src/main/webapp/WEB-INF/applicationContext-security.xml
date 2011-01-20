@@ -30,27 +30,16 @@
                              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
                              http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
-    <import resource="classpath:org/apache/camel/example/spring/security/common-security.xml"/>
+    <import resource="classpath:/common-security.xml"/>
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-http.xml"/>
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
-    <http realm="User Restrict Realm" xmlns="http://www.springframework.org/schema/security"> 
+    <http realm="TIF Spring Security Example" xmlns="http://www.springframework.org/schema/security"> 
         <intercept-url pattern="/**" access="ROLE_USER"/>
         <http-basic/>
         <remember-me/>
     </http>
-
-    
-    <global-method-security jsr250-annotations="enabled" xmlns="http://www.springframework.org/schema/security"/>
-    
-    <endpoint 
-		address="/CustomerServicePort"
-		implementor="#customerServiceImpl"
-		xmlns="http://cxf.apache.org/jaxws"/>
-		
-	<bean id="customerServiceImpl" class="server.CustomerServiceImpl">
-	</bean>
 
 </beans>

@@ -1,79 +1,104 @@
+/**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
+ */
 package client;
 
 import java.util.List;
 
-import javax.xml.ws.Service;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.log4j.Logger;
+import org.junit.Assert;
 
 import com.example.customerservice.Customer;
 import com.example.customerservice.CustomerService;
-import com.example.customerservice.CustomerServiceService;
 import com.example.customerservice.NoSuchCustomerException;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-
-import org.junit.Assert;
-
+/**
+ * Calls several methods of the customerservice with different
+ * users and credentials. Depending on the users roles the operation
+ * should work or be denied.
+ * 
+ * Also see the user and roles config in common-security
+ */
 public class JaxWsClient {
+	Logger log = Logger.getLogger(JaxWsClient.class);
+	
     public static void main(String[] args) throws NoSuchCustomerException {
-        
-        CustomerServiceService customerServiceService = new CustomerServiceService();
-        CustomerService customerService = customerServiceService.getCustomerServicePort();
+    	System.setProperty("org.apache.cxf.Logger", "org.apache.cxf.common.logging.Log4jLogger");
+        new JaxWsClient().run();
+    }
 
-        // Anonymous should not be able to read customers
+	private void run() {
+		JaxWsProxyFactoryBean factoryBean = new JaxWsProxyFactoryBean();
+		factoryBean.setAddress("http://localhost:9090/CustomerServicePort");
+		factoryBean.setServiceClass(CustomerService.class);
+		CustomerService customerService =  factoryBean.create(CustomerService.class);
+
+		// Anonymous should not be able to read customers
         try {
-            List<Customer> customersByName = customerService.getCustomersByName("Test");
-            Customer customer = customersByName.get(0);
+            List<Customer> customersByName = customerService.getCustomersByName("Fred");
+            customersByName.get(0);
             Assert.fail("Anonymous should not be allowed to read customers");
         } catch (Exception e) {
-            System.out.println("Anonymous request was correctly denied. Errormessage: " + e.getMessage());
+            log.info("Anonymous request was correctly denied. " + getMessage(e));
         }
         
         // Alex should not be able to read customers
         CredentialsInjector.inject(customerService, "alex", "alexspassword");
         try {
-            List<Customer> customersByName = customerService.getCustomersByName("Test");
-            Customer customer = customersByName.get(0);
+            customerService.getCustomersByName("Test");
             Assert.fail("Alex should not be allowed to read customers");
         } catch (Exception e) {
-            System.out.println("Alex큦 request was correctly denied. Error Message: " + e.getMessage());
+        	log.info("Alex큦 request was correctly denied. " + getMessage(e));
         }
 
         // Bob should be able to read customers but not to update
         CredentialsInjector.inject(customerService, "bob", "bobspassword");
         try {
-            List<Customer> customersByName = customerService.getCustomersByName("Test");
+            List<Customer> customersByName = customerService.getCustomersByName("Fred");
             Customer customer = customersByName.get(0);
-            System.out.println("Bob was able to load the customer " + customer.getName());
+            log.info("Bob was able to load the customer " + customer.getName());
         } catch (Exception e) {
             Assert.fail("Bob should be allowed to read customers");
         }
         CredentialsInjector.inject(customerService, "bob", "bobspassword");
         try {
             Customer customer = new Customer();
+            customer.setName("Fred");
             customerService.updateCustomer(customer );
             Assert.fail("Bob should not be allowed to update a customer");
         } catch (Exception e) {
-            System.out.println("Bob큦 request was correctly denied");
+        	log.info("Bob큦 request was correctly denied. " + getMessage(e));
         }
-       
-        
-        // Jim should be allowed to read and update customers
+
+        // Jim should be able to read and update customers
         CredentialsInjector.inject(customerService, "jim", "jimspassword");
         try {
-            List<Customer> customersByName = customerService.getCustomersByName("Test");
+            List<Customer> customersByName = customerService.getCustomersByName("Fred");
             Customer customer = customersByName.get(0);
-            System.out.println("Jim was able to load the customer " + customer.getName());
+            log.info("Jim was able to load the customer " + customer.getName());
         } catch (Exception e) {
             Assert.fail("Jim should be allowed to read customers");
         }
-
         CredentialsInjector.inject(customerService, "jim", "jimspassword");
         try {
             Customer customer = new Customer();
+            customer.setName("Fred");
             customerService.updateCustomer(customer );
-            System.out.println("Jim was able to update the customer");
+            log.info("Jim was able to update the customer");
         } catch (Exception e) {
             Assert.fail("Jim should be allowed to update a customer");
         }
+        log.info("All request were processed as expected");
+	}
+    
+    public String getMessage(Exception e) {
+    	String message = "Error Message: " + e.getMessage();
+    	Throwable cause = e.getCause();
+    	if (cause != null) {
+    		return message + " cause: " + cause.getMessage();
+    	} else {
+    		return message; 
+    	}
     }
 }
