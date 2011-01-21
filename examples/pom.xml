@@ -13,8 +13,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>jms-cxf</module>
+        <module>jaxws-jms</module>
         <module>jaxrs-jms-http</module>
+        <module>spring-security</module>
     </modules>
 
 </project>
