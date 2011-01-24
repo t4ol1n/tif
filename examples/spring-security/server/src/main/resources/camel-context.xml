@@ -62,6 +62,13 @@
        <jaxrs:serviceBeans>
          <ref bean="hello-world-bean"/>
        </jaxrs:serviceBeans>
+       <!--
+        This JAX-RS ExceptionMapper converts SpringSecurity AccessDeniedExceptions into HTTP 403 status. Camel CXF needs to be updated to check for Message.RESPONSE_CODE before defaulting to 200.
+        TODO: Enable the provider once the fix is applied
+       <jaxrs:providers>
+         <bean class="server.SecurityExceptionMapper" />
+       </jaxrs:providers>
+       -->
        <jaxrs:features>
          <bean class="org.apache.cxf.feature.LoggingFeature" />
        </jaxrs:features>

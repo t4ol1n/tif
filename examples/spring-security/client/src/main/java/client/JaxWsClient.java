@@ -49,7 +49,7 @@ public class JaxWsClient {
             customerService.getCustomersByName("Test");
             Assert.fail("Alex should not be allowed to read customers");
         } catch (Exception e) {
-        	log.info("Alex´s request was correctly denied. " + getMessage(e));
+        	log.info("Alex's request was correctly denied. " + getMessage(e));
         }
 
         // Bob should be able to read customers but not to update
@@ -68,7 +68,7 @@ public class JaxWsClient {
             customerService.updateCustomer(customer );
             Assert.fail("Bob should not be allowed to update a customer");
         } catch (Exception e) {
-        	log.info("Bob´s request was correctly denied. " + getMessage(e));
+        	log.info("Bob's request was correctly denied. " + getMessage(e));
         }
 
         // Jim should be able to read and update customers

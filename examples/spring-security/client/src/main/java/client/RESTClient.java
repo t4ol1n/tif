@@ -30,7 +30,7 @@ public final class RESTClient {
     public static void main(String[] args) throws Exception {
     	System.out.println("Using CXF JAX-RS proxy to invoke on HelloWorld service");
         RESTClient client = new RESTClient();
-        //client.sayHelloAsAdmin();
+        client.sayHelloAsAdmin();
         client.sayHelloAsUser();
     }
 	
