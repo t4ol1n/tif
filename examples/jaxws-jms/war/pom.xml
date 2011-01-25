@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.talend.if.examples.jaxws-jms</groupId>
+    <artifactId>jaxws-jms-war</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+    <name>TIF :: examples :: jaxws-jms :: war</name>
+
+<parent>
+    <groupId>com.talend.if.examples.jaxws-jms</groupId>
+    <artifactId>jaxws-jms</artifactId>
+    <version>1.0</version>
+</parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <connectors>
+                        <connector
+                            implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>9090</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.talend.if.examples.jaxws-jms</groupId>
+            <artifactId>jaxws-jms-server</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- for testing -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>7.2.2.v20101205</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>7.2.2.v20101205</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
