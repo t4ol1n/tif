@@ -5,7 +5,6 @@
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * Starts a jetty server for the project.
@@ -21,7 +20,6 @@ public class JettyStarter {
     }
 
     private void run() throws Exception {
-        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
         Server server = new org.eclipse.jetty.server.Server(9090);
 
         WebAppContext webappcontext = new WebAppContext();
