@@ -9,6 +9,7 @@
     <artifactId>spring-security-client</artifactId>
     <version>1.0</version>
     <packaging>bundle</packaging>
+    <name>TIF :: examples :: spring-security :: client</name>
 
     <parent>
         <groupId>com.talend.if.examples.spring-security</groupId>

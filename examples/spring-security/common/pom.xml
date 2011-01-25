@@ -9,6 +9,7 @@
 	<artifactId>spring-security-common</artifactId>
 	<packaging>bundle</packaging>
 	<version>1.0</version>
+    <name>TIF :: examples :: spring-security :: common</name>
 
 	<parent>
 		<groupId>com.talend.if.examples.spring-security</groupId>

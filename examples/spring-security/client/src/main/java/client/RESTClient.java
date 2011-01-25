@@ -64,10 +64,7 @@ public final class RESTClient {
             printUsers(users);
             throw new RuntimeException("Only admin should be able to invoke getUsers");
         } catch (WebApplicationException ex) {
-            // TODO We should make camel throw a 403 status
-            //Assert.assertEquals("403 response code is expected", 403, ex.getResponse().getStatus());
-            
-            Assert.assertEquals("500 response code is expected", 500, ex.getResponse().getStatus());
+            Assert.assertEquals("403 response code is expected", 403, ex.getResponse().getStatus());
             System.out.println("Access was denied for user bob");
         }
 
