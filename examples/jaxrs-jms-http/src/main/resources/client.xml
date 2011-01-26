@@ -22,46 +22,16 @@
     <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
     <import resource="classpath:META-INF/cxf/cxf-extension-camel.xml" />
 
-    <jaxrs:server address="camel://direct:bookStore" id="http-server">
-        <jaxrs:serviceBeans>
-            <ref bean="store" />
-        </jaxrs:serviceBeans>
-        <jaxrs:inInterceptors>
-            <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
-        </jaxrs:inInterceptors>
-    </jaxrs:server>
+<!--    <jaxrs:client address="camel://direct:bookStore" id="bookStoreClient" />-->
 
-    <bean id="store" class="service.BookStoreImpl">
-        <property name="bookListener" ref="bookSender" />
-    </bean>
-
-    <bean id="bookSender" class="service.BookSender">
-    </bean>
+    <bean id="test" class="client.BookStoreJmsProcessor" />
     
-    <bean id="bookReceiver" class="service.BookReceiver">
-    </bean>
+    <bean id="bookStoreJmsClient" class="client.BookStoreJmsClient" />
 
     <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" trace="true">
         <route>
-            <from uri="jms://test.bookStore" />
-            <bean ref="stripPrefix" />
-            <to uri="direct:bookStore" />
-        </route>
-
-        <!-- Serialize the book from the bookListener using jaxb and send 
-            the xml to a jms queue -->
-        <route>
-            <from uri="direct:bookListener" />
-            <marshal>
-                <jaxb prettyPrint="true" contextPath="common" />
-            </marshal>
-            <to uri="jms:test.books" />
-        </route>
-   
-        <route>
-            <from uri="jetty:http://0.0.0.0:9002/bookstore?matchOnUriPrefix=true" />
-            <bean ref="stripPrefix" />
-            <to uri="direct:bookStore" />
+            <from uri="direct:bookStoreHttp"/>
+            <to uri="http://localhost:9002/bookstore"/>
         </route>
     </camelContext>
 
@@ -71,12 +41,6 @@
 
     <bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
         <property name="brokerURL" value="tcp://localhost:61616"/>
-    </bean>
-    
-    <bean id="stripPrefix" class="service.StripPrefixProcessor">
-    </bean>
-
-    <bean id="jetty" class="org.apache.camel.component.jetty.JettyHttpComponent">
     </bean>
     
 </beans>

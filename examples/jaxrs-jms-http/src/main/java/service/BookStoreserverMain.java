@@ -1,16 +1,17 @@
+/**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
+ */
 package service;
-
-import java.io.IOException;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class BookStoreserverMain {
+public class BookStoreServerMain {
 
     /**
      * @param args
-     * @throws IOException 
+     * @throws Exception 
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/beans.xml");
         System.in.read();
         context.close();

@@ -1,3 +1,6 @@
+/**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
+ */
 package common;
 
 import javax.ws.rs.Consumes;
@@ -10,8 +13,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.ext.Oneway;
-
-
 
 @Path("/")
 @Produces({"text/xml", "application/xml" })
@@ -27,4 +28,7 @@ public interface BookStore {
     @PUT
     @Oneway
     void oneWayRequest(Book book) throws Exception;
+    
+    @GET
+    BookList listBooks();
 }

@@ -13,6 +13,7 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _Book_QNAME = new QName("http://books", "Book");
+    private final static QName _BookList_QNAME = new QName("http://books", "BookList");
     
     /**
      * Create a new ObjectFactory that can be used to create new instances of
@@ -36,6 +37,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://books.com", name = "Book")
     public JAXBElement<Book> createBook(Book value) {
         return new JAXBElement<Book>(_Book_QNAME, Book.class, null, value);
+    }
+    
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}
+     * {@link Book }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://books.com", name = "BookList")
+    public JAXBElement<BookList> createBookList(BookList value) {
+        return new JAXBElement<BookList>(_BookList_QNAME, BookList.class, null, value);
     }
     
 }
