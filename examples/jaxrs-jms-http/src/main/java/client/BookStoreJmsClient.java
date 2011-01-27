@@ -43,13 +43,11 @@ public class BookStoreJmsClient implements BookStore {
 
     @Override
     public void oneWayRequest(Book book) throws Exception {
+        producer.sendBodyAndHeaders(JMS_URI, book, getRestHeaders("POST", "/"));
     }
 
     @Override
     public BookList listBooks() {
-        Map<String, Object> headers = new HashMap<String, Object>();
-        headers.put(Exchange.HTTP_METHOD, "GET");
-        headers.put(Exchange.HTTP_PATH, "/");
         return producer.requestBodyAndHeaders(JMS_URI, null, getRestHeaders("GET", "/"), BookList.class);
     }
 

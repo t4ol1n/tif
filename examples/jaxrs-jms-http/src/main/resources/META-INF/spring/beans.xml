@@ -42,8 +42,17 @@
     </bean>
 
     <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" trace="true">
+    
+        <!-- This route offers the cxf endpoint using a jms queue -->
         <route>
             <from uri="jms://test.bookStore" />
+            <bean ref="stripPrefix" />
+            <to uri="direct:bookStore" />
+        </route>
+        
+        <!--  This route offers the cxf endpoint using an embedded jetty instance -->
+        <route>
+            <from uri="jetty:http://0.0.0.0:9002/bookstore?matchOnUriPrefix=true" />
             <bean ref="stripPrefix" />
             <to uri="direct:bookStore" />
         </route>
@@ -58,11 +67,7 @@
             <to uri="jms:test.books" />
         </route>
    
-        <route>
-            <from uri="jetty:http://0.0.0.0:9002/bookstore?matchOnUriPrefix=true" />
-            <bean ref="stripPrefix" />
-            <to uri="direct:bookStore" />
-        </route>
+
     </camelContext>
 
     <bean id="jms" class="org.apache.camel.component.jms.JmsComponent">

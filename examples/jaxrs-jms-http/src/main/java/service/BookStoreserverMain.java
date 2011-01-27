@@ -5,6 +5,9 @@ package service;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+/**
+ * Starter class for the standalone server of the book store service
+ */
 public class BookStoreServerMain {
 
     /**

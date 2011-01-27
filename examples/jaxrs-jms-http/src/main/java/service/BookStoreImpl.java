@@ -15,6 +15,11 @@ import common.BookList;
 import common.BookListener;
 import common.BookStore;
 
+/**
+ * Implementation of the book store service. This is mainly a pure pojo.
+ * One big advantage of that is that you can test it without any container
+ * using a simple unit test 
+ */
 public class BookStoreImpl implements BookStore {
 
     @javax.ws.rs.core.Context
@@ -48,6 +53,9 @@ public class BookStoreImpl implements BookStore {
     }
 
     private void printRequestTransport() {
+        if (context == null) {
+            return;
+        }
     	if (context.getRequestHeaderValue("JMSMessageType") != null) {
     		System.out.println("It is the JMS Request");
     	} else {

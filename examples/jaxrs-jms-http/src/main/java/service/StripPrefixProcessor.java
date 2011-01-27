@@ -8,8 +8,8 @@ import org.apache.camel.Processor;
 
 /**
  * Currently the CXF JAX-RS code determines the base path of a JAX-RS endpoint by simply
- * looking at the defined address property. As the adress is "camel:// ..." when using camel
- * this does not work. So we cut off the base path from the URL before sending to CXF
+ * looking at the defined address property. As the address is "jms:// ..." or "jetty://"
+ * when using camel this does not work. So we cut off the base path from the URL before sending to CXF
  */
 public class StripPrefixProcessor implements Processor {
 
