@@ -19,7 +19,12 @@
                 <!--exclude>LICENSE</exclude>
                 <exclude>NOTICE</exclude-->
                 <exclude>README</exclude>
+                <exclude>**/examples/**</exclude>
             </excludes>
+        </fileSet>
+        <fileSet>
+            <directory>target/dependencies/camel/apache-camel-${camel.version}/examples</directory>
+            <outputDirectory>/samples</outputDirectory>
         </fileSet>
         <!-- Expanded Karaf Runtime -->
         <fileSet>
