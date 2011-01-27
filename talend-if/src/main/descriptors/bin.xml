@@ -9,7 +9,18 @@
         <format>tar.gz</format>
         <format>zip</format>
     </formats>
+
     <fileSets>
+        <!-- Expanded Camel Runtime -->
+        <fileSet>
+            <directory>target/dependencies/camel/apache-camel-${camel.version}</directory>
+            <outputDirectory>/</outputDirectory>
+            <excludes>
+                <!--exclude>LICENSE</exclude>
+                <exclude>NOTICE</exclude-->
+                <exclude>README</exclude>
+            </excludes>
+        </fileSet>
         <!-- Expanded Karaf Runtime -->
         <fileSet>
             <directory>target/dependencies/unix/apache-karaf-${karaf.version}</directory>
@@ -99,8 +110,8 @@
     <dependencySets>
         <!--dependencySet>
             <outputDirectory>/system</outputDirectory>
-            <outputFileNameMapping>org/apache/camel/karaf/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact
-.extension}</outputFileNameMapping>            <unpack>false</unpack>
+            <outputFileNameMapping>org/apache/camel/karaf/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+            <unpack>false</unpack>
             <scope>runtime</scope>
             <includes>
                 <include>org.apache.camel.karaf:apache-camel:xml:features</include>
@@ -110,7 +121,8 @@
             <outputDirectory>/lib</outputDirectory>
             <unpack>false</unpack>
             <useProjectArtifact>false</useProjectArtifact>
-            <includes>                <include>com.sun.xml.bind:jaxb-xjc</include>
+            <includes>
+                <include>com.sun.xml.bind:jaxb-xjc</include>
                 <include>com.sun.xml.bind:jaxb-impl</include>
             </includes>
         </dependencySet>
@@ -118,17 +130,16 @@
             <outputDirectory>/container/system</outputDirectory>
             <unpack>false</unpack>
             <useProjectArtifact>false</useProjectArtifact>
-            <outputFileNameMapping>org/apache/felix/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.exten
-sion}</outputFileNameMapping>
+            <outputFileNameMapping>org/apache/felix/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
             <includes>
                 <include>org.apache.felix:org.osgi.compendium</include>
             </includes>
         </dependencySet>
         <dependencySet>
             <outputDirectory>/container/system</outputDirectory>
-            <unpack>false</unpack>            <useProjectArtifact>false</useProjectArtifact>
-            <outputFileNameMapping>org/springframework/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.ex
-tension}</outputFileNameMapping>
+            <unpack>false</unpack>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputFileNameMapping>org/springframework/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
             <includes>
                 <include>org.springframework:spring-aop</include>
                 <include>org.springframework:spring-beans</include>
@@ -188,4 +199,3 @@ tension}</outputFileNameMapping>
     </dependencySets>
 
 </assembly>
-

@@ -15,9 +15,10 @@
     </parent>
     <properties>
         <cxf.version>2.3.2</cxf.version>
+        <camel.version>2.6.0</camel.version>
+        <activemq.version>5.4.2</activemq.version>
         <spring.version>3.0.5.RELEASE</spring.version>
         <spring.osgi.version>1.2.1</spring.osgi.version>
-        <activemq.version>5.4.2</activemq.version>
 
         <!-- OSGi (Karaf, Felix, Aries) -->
         <aries.version>0.2-incubating</aries.version>
@@ -945,8 +946,27 @@
                             </artifactItems>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>unpack-camel</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.apache.camel</groupId>
+                                    <artifactId>apache-camel</artifactId>
+                                    <version>${camel.version}</version>
+                                    <type>tar.gz</type>
+                                    <outputDirectory>target/dependencies/camel</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
