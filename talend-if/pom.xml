@@ -13,6 +13,8 @@
         <artifactId>tif-parent</artifactId>
         <version>1.0</version>
     </parent>
+
+    
     <properties>
         <cxf.version>2.3.2</cxf.version>
         <camel.version>2.6.0</camel.version>
@@ -1025,6 +1027,12 @@
             <url>http://download.java.net/maven/2/</url>
             <layout>default</layout>
         </repository>
+	    
+        <repository>
+            <id>camel staged</id>
+            <url>https://repository.apache.org/content/repositories/orgapachecamel-073/</url>
+        </repository>
+
     </repositories>
 </project>
 
