@@ -867,7 +867,6 @@
             </resource>
         </resources>
         <plugins>
-            <!--
             <plugin>
                 <groupId>org.apache.karaf.tooling</groupId>
                 <artifactId>features-maven-plugin</artifactId>
@@ -883,7 +882,7 @@
                             <descriptors>
                                 <descriptor>mvn:org.apache.karaf/apache-karaf/${karaf.version}/xml/features</descriptor>
                                 <descriptor>file:${basedir}/target/classes/activemq-features.xml</descriptor>
-                                <descriptor>file:${basedir}/target/classes/camel-features.xml</descriptor>
+                                <!-- descriptor>file:${basedir}/target/classes/camel-features.xml</descriptor -->
                                 <descriptor>file:${basedir}/target/classes/features.xml</descriptor>
                             </descriptors>
                             <features>
@@ -895,7 +894,6 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
