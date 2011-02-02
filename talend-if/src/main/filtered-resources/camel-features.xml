@@ -2,6 +2,7 @@
 <!--
     Copyright (C) 2011 Talend Inc. - www.talend.com
 -->
+<features>
   <feature name='camel' version='2.6.0'>
     <feature version='2.6.0'>camel-core</feature>
     <feature version='2.6.0'>camel-spring</feature>
