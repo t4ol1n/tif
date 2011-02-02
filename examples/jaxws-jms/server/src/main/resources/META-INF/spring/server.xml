@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (C) 2010 Talend Inc. - www.talend.com -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xmlns:osgi="http://camel.apache.org/schema/osgi"
 	xsi:schemaLocation="
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
-    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+    http://camel.apache.org/schema/osgi http://camel.apache.org/schema/osgi/camel-osgi.xsd">
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-extension-camel.xml"/>
+	<import resource="classpath:META-INF/cxf/camel/cxf-extension-camel.xml"/>
 
 	<jaxws:endpoint 
 		address="camel://direct:greeterServerEndpoint"
@@ -18,7 +21,7 @@
 	<bean id="greeterImpl" class="demo.jms_greeter.server.GreeterJMSImpl">
 	</bean>
 
-	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
+	<osgi:camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" >
 		<route>
 			<from uri="jms:test.cxf.jmstransport.queue" />
 			<to uri="direct:greeterServerEndpoint" />
@@ -33,7 +36,7 @@
 				<constant>jms://queue:test</constant>
 			</setHeader>
 		</route>
-	</camelContext>
+	</osgi:camelContext>
 	
 	<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
 		<property name="connectionFactory" ref="connectionFactory"/>
