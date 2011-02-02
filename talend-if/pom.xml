@@ -882,7 +882,8 @@
                             <descriptors>
                                 <descriptor>mvn:org.apache.karaf/apache-karaf/${karaf.version}/xml/features</descriptor>
                                 <descriptor>file:${basedir}/target/classes/activemq-features.xml</descriptor>
-                                <!-- descriptor>file:${basedir}/target/classes/camel-features.xml</descriptor -->
+                                <descriptor>file:${basedir}/target/classes/camel-features.xml</descriptor>
+                                <descriptor>file:${basedir}/target/classes/cxf-features.xml</descriptor>
                                 <descriptor>file:${basedir}/target/classes/features.xml</descriptor>
                             </descriptors>
                             <features>
