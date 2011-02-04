@@ -41,6 +41,14 @@
             <classifier>features</classifier>
         </dependency>
 
+        <!-- Apache ActiveMQ -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-karaf</artifactId>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+
         <!-- Apache Camel -->
         <dependency>
             <groupId>org.apache.camel.karaf</groupId>
