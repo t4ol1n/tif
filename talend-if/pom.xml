@@ -9,6 +9,12 @@
     <url>http://talend.com</url>
     <packaging>pom</packaging>
 
+    <parent>
+        <groupId>com.talend.if</groupId>
+        <artifactId>tif-parent</artifactId>
+        <version>1.0</version>
+    </parent>
+
     <properties>
         <karaf.version>2.1.3</karaf.version>
         <camel.version>2.6.0</camel.version>
@@ -165,14 +171,12 @@
                                 <feature>camel-protobuf</feature>
                                 <feature>camel-quartz</feature>
                                 <feature>camel-quickfix</feature>
-                                <feature>camel-restlet</feature>
                                 <feature>camel-rmi</feature>
                                 <feature>camel-routebox</feature>
                                 <feature>camel-rss</feature>
                                 <feature>camel-saxon</feature>
                                 <feature>camel-scala</feature>
                                 <feature>camel-script</feature>
-                                <feature>camel-ruby</feature>
                                 <feature>camel-sip</feature>
                                 <feature>camel-shiro</feature>
                                 <feature>camel-smpp</feature>
