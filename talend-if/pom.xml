@@ -182,7 +182,6 @@
                                 <feature>camel-smpp</feature>
                                 <feature>camel-snmp</feature>
                                 <feature>camel-soap</feature>
-                                <feature>camel-spring-integration</feature>
                                 <feature>camel-spring-javaconfig</feature>
                                 <feature>camel-spring-security</feature>
                                 <feature>camel-spring-ws</feature>
