@@ -4,7 +4,7 @@
 -->
 <assembly>
 
-    <id></id> <!-- intentionally left blank -> http://jira.codehaus.org/browse/MASSEMBLY-301 -->
+    <id>win-bin</id>
 
     <formats>
         <format>zip</format>
