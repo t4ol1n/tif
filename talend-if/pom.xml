@@ -291,7 +291,7 @@
                             <descriptors>
                                 <descriptor>src/main/descriptors/unix-bin.xml</descriptor>
                             </descriptors>
-                            <!-- <appendAssemblyId>false</appendAssemblyId> -->
+                            <appendAssemblyId>false</appendAssemblyId>
                             <tarLongFileMode>gnu</tarLongFileMode>
                         </configuration>
                     </execution>
@@ -305,6 +305,7 @@
                             <descriptors>
                                 <descriptor>src/main/descriptors/win-bin.xml</descriptor>
                             </descriptors>
+                            <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
                     </execution>
                 </executions>
