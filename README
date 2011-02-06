@@ -23,3 +23,7 @@ and data formats.
 The TIF distribution supplements the Apache Camel with support for 
 OSGi containers, support for integrating Talend jobs on Camel routes
 and a number of advanced examples.
+The OSGi container uses Apache Karaf. It's a lightweight container
+providing advanced features such as provisioning, hot deployment,
+logger system, dynmamic configuration, complete shell environment, etc.
+It's profesional and production ready kermel for the TIF.

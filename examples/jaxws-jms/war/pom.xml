@@ -9,7 +9,7 @@
     <artifactId>jaxws-jms-war</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>TIF :: examples :: jaxws-jms :: war</name>
+    <name>TIF :: Examples :: jaxws-jms :: war</name>
 
     <parent>
         <groupId>com.talend.if.examples.jaxws-jms</groupId>

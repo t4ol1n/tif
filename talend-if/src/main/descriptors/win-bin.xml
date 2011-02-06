@@ -100,4 +100,14 @@
 
     </fileSets>
 
+    <files>
+         <file>
+            <source>${basedir}/target/dependencies/win/apache-karaf-${karaf.version}/bin/karaf.bat</source>
+            <outputDirectory>/container/bin/</outputDirectory>
+            <destName>tif.bat</destName>
+            <fileMode>0755</fileMode>
+            <lineEnding>dos</lineEnding>
+         </file>
+    </files>
+
 </assembly>

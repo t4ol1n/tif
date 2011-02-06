@@ -9,7 +9,7 @@
     <artifactId>spring-security-server</artifactId>
     <version>1.0</version>
     <packaging>bundle</packaging>
-    <name>TIF :: examples :: spring-security :: server</name>
+    <name>TIF :: Examples :: spring-security :: server</name>
 
     <parent>
         <groupId>com.talend.if.examples.spring-security</groupId>

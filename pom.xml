@@ -5,8 +5,8 @@
 
     <groupId>com.talend.if</groupId>
     <artifactId>tif-parent</artifactId>
-    <version>1.0</version>
-    <name>Talend Integration Factory</name>
+    <version>2.6.0.0</version>
+    <name>TIF</name>
     <description>
         Talend Integration Factory is an advanced enterprise ready ESB.
 
@@ -49,12 +49,9 @@
     <!-- TODO <ciManagement/> -->
 
     <properties>
-        <!-- To propogate in modules -->
-        <tif.version>2.6.0.0</tif.version>
-
-        <!-- Core Dependencies Set -->
         <activemq.version>5.4.2</activemq.version>
         <camel.version>2.6.0</camel.version>
+        <karaf.version>2.1.3</karaf.version>
     </properties>
 
     <repositories>
