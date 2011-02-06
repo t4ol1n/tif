@@ -9,7 +9,7 @@
     <groupId>com.talend.if.examples</groupId>
     <artifactId>talend-if-examples</artifactId>
     <version>1.0</version>
-    <name>Talend IF Examples</name>
+    <name>TIF :: Examples</name>
     <packaging>pom</packaging>
 
     <modules>

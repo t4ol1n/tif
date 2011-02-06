@@ -9,7 +9,7 @@
     <artifactId>jaxrs-jms-http-common</artifactId>
     <packaging>bundle</packaging>
     <version>1.0</version>
-    <name>TIF :: examples :: jaxrs-jms-http :: common</name>
+    <name>TIF :: Examples :: jaxrs-jms-http :: common</name>
 
     <parent>
         <groupId>com.talend.if.examples.jaxrs-jms-http</groupId>

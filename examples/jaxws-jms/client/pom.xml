@@ -9,7 +9,7 @@
     <artifactId>jaxws-jms-client</artifactId>
     <version>1.0</version>
     <packaging>bundle</packaging>
-    <name>TIF :: examples :: jaxws-jms :: client</name>
+    <name>TIF :: Examples :: jaxws-jms :: client</name>
 
     <parent>
         <groupId>com.talend.if.examples.jaxws-jms</groupId>

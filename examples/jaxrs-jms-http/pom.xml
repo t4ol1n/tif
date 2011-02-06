@@ -8,7 +8,7 @@
     <artifactId>jaxrs-jms-http</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-    <name>TIF :: examples :: jaxrs-jms-http</name>
+    <name>TIF :: Examples :: jaxrs-jms-http</name>
     <description>JAXRS service with camel jms and http transports</description>
 
     <modules>
