@@ -212,6 +212,22 @@
                                     <outputDirectory>target/dependencies</outputDirectory>
                                     <destFileName>tif.jar</destFileName>
                                 </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.camel.karaf</groupId>
+                                    <artifactId>apache-camel</artifactId>
+                                    <type>xml</type>
+                                    <classifier>features</classifier>
+                                    <outputDirectory>target/dependencies</outputDirectory>
+                                    <destFileName>apache-camel-features.xml</destFileName>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.activemq</groupId>
+                                    <artifactId>activemq-karaf</artifactId>
+                                    <type>xml</type>
+                                    <classifier>features</classifier>
+                                    <outputDirectory>target/dependencies</outputDirectory>
+                                    <destFileName>apache-activemq-features.xml</destFileName>
+                                </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
