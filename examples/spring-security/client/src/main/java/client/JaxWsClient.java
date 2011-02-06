@@ -30,7 +30,7 @@ public class JaxWsClient {
 
 	private void run() {
 		JaxWsProxyFactoryBean factoryBean = new JaxWsProxyFactoryBean();
-		factoryBean.setAddress("http://localhost:9090/CustomerServicePort");
+		factoryBean.setAddress("http://localhost:8080/CustomerServicePort");
 		factoryBean.setServiceClass(CustomerService.class);
 		CustomerService customerService =  factoryBean.create(CustomerService.class);
 

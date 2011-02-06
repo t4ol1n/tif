@@ -26,7 +26,16 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Require-Bundle>org.apache.cxf.bundle,org.springframework.beans</Require-Bundle>
+                        <Import-Package>*,javax.servlet,
+                            org.aopalliance.aop</Import-Package>
+                        <Require-Bundle>
+                            org.apache.cxf.bundle,
+                            org.springframework.beans,
+                            org.apache.camel.camel-cxf,
+                            org.springframework.security.core,
+                            org.springframework.aop
+                        </Require-Bundle>
+<!--                        <Bundle-Activator>server.Activator</Bundle-Activator>-->
                     </instructions>
                 </configuration>
             </plugin>
@@ -104,14 +113,6 @@
             </exclusions>
         </dependency>
 
-
-
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
-        </dependency>
-
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>jsr250-api</artifactId>
@@ -131,6 +132,23 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>1.2.0</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>javax.servlet</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.osgi.foundation</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- for testing -->

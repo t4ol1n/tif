@@ -13,24 +13,21 @@
        http://www.springframework.org/schema/osgi  http://www.springframework.org/schema/osgi/spring-osgi.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
       
-    <bean id="osgiServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>
-     
-    <osgi:service ref="osgiServlet">
-        <osgi:interfaces>
-            <value>javax.servlet.Servlet</value>
-            <value>org.apache.camel.component.servlet.CamelServletService</value>
-        </osgi:interfaces>
-        <osgi:service-properties>
-            <entry key="alias" value="/camel/services" />
-            <entry key="servlet-name" value="CamelServlet"/>
-        </osgi:service-properties>
-    </osgi:service>
+    <osgi:reference id="httpservice" interface="org.osgi.service.http.HttpService"/>
     
+    <bean class="server.ServletRegisterer">
+        <property name="alias" value="/spring-security"/>
+        <property name="name" value="CamelHttpServlet" />
+        <property name="httpService" ref="httpservice"/>
+        <property name="servlet" ref="osgiServlet"/>
+    </bean>
+    
+    <bean id="osgiServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>
 
    <bean id="servlet" class="org.apache.camel.component.servlet.ServletComponent">
       <property name = "camelServletService" ref="osgiServlet" />
    </bean>
 
-   <import resource="/camel-context.xml"/>
+   <import resource="classpath:/camel-context.xml"/>
   
 </beans>
