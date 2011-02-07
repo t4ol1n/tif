@@ -59,40 +59,47 @@
       <artifactId>jobcamel</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/jobcamel_0_1.jar</systemPath>
+      <systemPath>${basedir}/target/classes/jobcamel_0_1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>talendesb</groupId>
       <artifactId>javacsv</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/javacsv.jar</systemPath>
+      <systemPath>${basedir}/target/classes/javacsv.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>talendesb</groupId>
       <artifactId>routineTest</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/routineTest.jar</systemPath>
+      <systemPath>${basedir}/target/classes/routineTest.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>talendesb</groupId>
       <artifactId>systemRoutines</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/systemRoutines.jar</systemPath>
+      <systemPath>${basedir}/target/classes/systemRoutines.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>talendesb</groupId>
       <artifactId>userRoutines</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/userRoutines.jar</systemPath>
+      <systemPath>${basedir}/target/classes/userRoutines.jar</systemPath>
     </dependency>
   </dependencies>
 
   <build>
     <defaultGoal>install</defaultGoal>
+
+    <resources>
+      <resource>
+        <directory>src/test/lib</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
 
     <plugins>
       <plugin>
