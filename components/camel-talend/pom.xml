@@ -30,6 +30,7 @@
   <url>http://www.talend.org</url>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <camel-version>2.5.0</camel-version>
   </properties>
 
@@ -69,12 +70,14 @@
   <build>
     <defaultGoal>install</defaultGoal>
 
-    <resources>
-      <resource>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+      <testResource>
         <directory>src/test/lib</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
+      </testResource>
+    </testResources>
 
     <plugins>
       <plugin>
@@ -92,11 +95,11 @@
         <version>2.7.1</version>
         <configuration>
           <additionalClasspathElements>
-            <additionalClasspathElement>target/classes/jobcamel_0_1.jar</additionalClasspathElement>
-            <additionalClasspathElement>target/classes/javacsv.jar</additionalClasspathElement>
-            <additionalClasspathElement>target/classes/routineTest.jar</additionalClasspathElement>
-            <additionalClasspathElement>target/classes/systemRoutines.jar</additionalClasspathElement>
-            <additionalClasspathElement>target/classes/userRoutines.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/test-classes/jobcamel_0_1.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/test-classes/javacsv.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/test-classes/routineTest.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/test-classes/systemRoutines.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/test-classes/userRoutines.jar</additionalClasspathElement>
           </additionalClasspathElements>
         </configuration>
       </plugin>
