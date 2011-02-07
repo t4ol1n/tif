@@ -53,7 +53,8 @@
             <outputDirectory>/container</outputDirectory>
             <includes>
                 <include>bin/admin.bat</include>
-                <include>bin/karaf.bat</include>  <!-- we need this one in here for admin:create'd instances to work -->
+                <include>bin/karaf.bat</include>
+                <!-- we need this one in here for admin:create'd instances to work -->
                 <include>bin/start.nat</include>
                 <include>bin/stop.bat</include>
             </includes>
@@ -101,13 +102,13 @@
     </fileSets>
 
     <files>
-         <file>
+        <file>
             <source>${basedir}/target/dependencies/win/apache-karaf-${karaf.version}/bin/karaf.bat</source>
             <outputDirectory>/container/bin/</outputDirectory>
             <destName>tif.bat</destName>
             <fileMode>0755</fileMode>
             <lineEnding>dos</lineEnding>
-         </file>
+        </file>
         <file>
             <source>${basedir}/target/dependencies/apache-camel-features.xml</source>
             <outputDirectory>/container/system/org/apache/camel/karaf/apache-camel/${camel.version}</outputDirectory>
@@ -121,6 +122,13 @@
             <destName>activemq-karaf-${activemq.version}-features.xml</destName>
             <fileMode>0644</fileMode>
             <lineEnding>dos</lineEnding>
+        </file>
+        <file>
+            <source>${basedir}/target/classes/features.xml</source>
+            <outputDirectory>/container/system/com/talend/if/talend-if/${project.version}</outputDirectory>
+            <destName>talend-if-${project.version}-features.xml</destName>
+            <fileMode>0644</fileMode>
+            <lineEnding>unix</lineEnding>
         </file>
     </files>
 
