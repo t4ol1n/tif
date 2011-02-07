@@ -64,42 +64,6 @@
       <artifactId>log4j</artifactId>
       <version>1.2.16</version>
     </dependency>
-
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>jobcamel</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/target/classes/jobcamel_0_1.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>javacsv</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/target/classes/javacsv.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>routineTest</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/target/classes/routineTest.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>systemRoutines</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/target/classes/systemRoutines.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>userRoutines</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/target/classes/userRoutines.jar</systemPath>
-    </dependency>
   </dependencies>
 
   <build>
@@ -116,16 +80,23 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
         <configuration>
           <source>1.5</source>
           <target>1.5</target>
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.7.1</version>
         <configuration>
           <additionalClasspathElements>
-            <additionalClasspathElement>lib/jobcamel_0_1.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/classes/jobcamel_0_1.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/classes/javacsv.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/classes/routineTest.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/classes/systemRoutines.jar</additionalClasspathElement>
+            <additionalClasspathElement>target/classes/userRoutines.jar</additionalClasspathElement>
           </additionalClasspathElements>
         </configuration>
       </plugin>
