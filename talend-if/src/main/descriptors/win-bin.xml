@@ -19,6 +19,9 @@
                 <!--exclude>LICENSE</exclude>
                 <exclude>NOTICE</exclude-->
                 <exclude>README</exclude>
+                <exclude>README.txt</exclude>
+                <exclude>LICENSE.txt</exclude>
+                <exclude>NOTICE.txt</exclude>
                 <exclude>**/examples/**</exclude>
             </excludes>
         </fileSet>
@@ -39,11 +42,13 @@
                 <exclude>etc/users.properties</exclude>
                 <exclude>etc/org.apache.karaf.features.cfg</exclude>
                 <exclude>etc/org.ops4j.pax.logging.cfg</exclude>
-                <!--exclude>LICENSE</exclude>
+                <exclude>etc/shell.init.script</exclude>
+                <exclude>LICENSE</exclude>
                 <exclude>NOTICE</exclude>
-                <exclude>README</exclude-->
+                <exclude>README</exclude>
                 <exclude>RELEASE-NOTES</exclude>
                 <exclude>karaf-manual*.html</exclude>
+                <exclude>karaf-manual*.pdf</exclude>
             </excludes>
         </fileSet>
 
@@ -76,6 +81,7 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>README</include>
+                <include>LICENSE</include>
                 <!--include>RELEASE*</include-->
             </includes>
             <lineEnding>unix</lineEnding>
@@ -128,7 +134,7 @@
             <outputDirectory>/container/system/com/talend/if/talend-if/${project.version}</outputDirectory>
             <destName>talend-if-${project.version}-features.xml</destName>
             <fileMode>0644</fileMode>
-            <lineEnding>unix</lineEnding>
+            <lineEnding>dos</lineEnding>
         </file>
     </files>
 

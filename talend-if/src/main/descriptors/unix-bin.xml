@@ -11,6 +11,7 @@
     </formats>
 
     <fileSets>
+
         <!-- Expanded Camel Runtime -->
         <fileSet>
             <directory>target/dependencies/camel/apache-camel-${camel.version}</directory>
@@ -19,6 +20,9 @@
                 <!--exclude>LICENSE</exclude>
                 <exclude>NOTICE</exclude-->
                 <exclude>README</exclude>
+                <exclude>README.txt</exclude>
+                <exclude>LICENSE.txt</exclude>
+                <exclude>NOTICE.txt</exclude>
                 <exclude>**/examples/**</exclude>
             </excludes>
         </fileSet>
@@ -26,6 +30,7 @@
             <directory>target/dependencies/camel/apache-camel-${camel.version}/examples</directory>
             <outputDirectory>/samples</outputDirectory>
         </fileSet>
+
         <!-- Expanded Karaf Runtime -->
         <fileSet>
             <directory>target/dependencies/unix/apache-karaf-${karaf.version}</directory>
@@ -39,11 +44,13 @@
                 <exclude>etc/users.properties</exclude>
                 <exclude>etc/org.apache.karaf.features.cfg</exclude>
                 <exclude>etc/org.ops4j.pax.logging.cfg</exclude>
-                <!--exclude>LICENSE</exclude>
+                <exclude>etc/shell.init.script</exclude>
+                <exclude>LICENSE</exclude>
                 <exclude>NOTICE</exclude>
-                <exclude>README</exclude-->
+                <exclude>README</exclude>
                 <exclude>RELEASE-NOTES</exclude>
                 <exclude>karaf-manual*.html</exclude>
+                <exclude>karaf-manual*.pdf</exclude>
             </excludes>
         </fileSet>
 
@@ -72,10 +79,11 @@
 
         <!-- Copy license and other files from root -->
         <fileSet>
-            <directory>${basedir}</directory>
+            <directory>${basedir}/..</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>README</include>
+                <include>LICENSE</include>
                 <!--include>RELEASE*</include-->
             </includes>
             <lineEnding>unix</lineEnding>
