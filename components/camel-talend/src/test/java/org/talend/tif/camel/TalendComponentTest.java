@@ -56,11 +56,4 @@ public class TalendComponentTest extends CamelTestSupport {
             }
         };
     }
-    
-    // TODO [hz]: remove this method after the camel 2.6.0 release; will be provided by camel
-    private static void assertFileExists(String filename) {
-        File file = new File(filename);
-        file = file.getAbsoluteFile();
-        assertTrue("File " + filename + " should exist", file.exists());
-    }
 }

@@ -81,6 +81,7 @@
     </pluginRepositories>
 
     <modules>
+        <module>components</module>
         <module>branding</module>
         <module>documentation</module>
         <module>talend-if</module>
