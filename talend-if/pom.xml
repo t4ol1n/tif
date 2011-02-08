@@ -53,7 +53,7 @@
         <!-- TIF Components -->
         <dependency>
             <groupId>org.talend.camel</groupId>
-            <artifactId>camel-talend</artifactId>
+            <artifactId>camel-tis</artifactId>
             <version>${project.version}</version>
         </dependency>
 
