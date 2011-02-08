@@ -41,6 +41,18 @@
       <version>${camel.version}</version>
     </dependency>  
 
+    <!-- logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.5.11</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.16</version>
+    </dependency>
+
     <!-- for testing -->
     <dependency>
       <groupId>junit</groupId>
@@ -55,16 +67,43 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- TOS job jars used for testing -->
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.5.11</version>
+      <groupId>talendesb</groupId>
+      <artifactId>jobcamel</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/target/test-classes/jobcamel_0_1.jar</systemPath>
     </dependency>
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.16</version>
+      <groupId>talendesb</groupId>
+      <artifactId>javacsv</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/target/test-classes/javacsv.jar</systemPath>
     </dependency>
+    <dependency>
+      <groupId>talendesb</groupId>
+      <artifactId>routineTest</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/target/test-classes/routineTest.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>talendesb</groupId>
+      <artifactId>systemRoutines</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/target/test-classes/systemRoutines.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>talendesb</groupId>
+      <artifactId>userRoutines</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/target/test-classes/userRoutines.jar</systemPath>
+    </dependency>
+
   </dependencies>
 
   <build>
