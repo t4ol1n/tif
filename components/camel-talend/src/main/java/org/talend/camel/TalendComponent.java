@@ -2,7 +2,7 @@
  * Copyright (C) 2010 Talend Inc. - www.talend.com
  */
 
-package org.talend.tif.camel;
+package org.talend.camel;
 
 import java.util.Map;
 
