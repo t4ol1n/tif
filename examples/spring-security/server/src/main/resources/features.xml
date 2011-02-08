@@ -1,3 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${pom.version}/xml/features</repository>
 
-mvn:org.springframework.security/spring-security-web/3.0.5.RELEASE
-mvn:org.springframework/spring-web/3.0.5.RELEASE
+    <feature name='tif-example-spring-security' version='${pom.version}'>
+        <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-spring-security</feature>
+        <feature version="${camel.version}">camel-servlet</feature>
+        <feature>http</feature>
+        
+        <bundle>mvn:org.springframework.security/spring-security-web/3.0.5.RELEASE</bundle>
+        <bundle>mvn:org.springframework/spring-web/3.0.5.RELEASE</bundle>
+        
+        <bundle>mvn:${pom.groupId}/spring-security-common/${pom.version}</bundle>
+        <bundle>mvn:${pom.groupId}/spring-security-server/${pom.version}</bundle>
+    </feature>
+
+</features>

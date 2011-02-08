@@ -24,7 +24,7 @@ import common.UserImpl;
  */
 public final class RESTClient {
 	Logger log = Logger.getLogger(JaxWsClient.class);
-	final static String address = "http://localhost:9090/HelloWorld";
+	final static String address = "http://localhost:8080/spring-security/HelloWorld";
 	
 
     public static void main(String[] args) throws Exception {
