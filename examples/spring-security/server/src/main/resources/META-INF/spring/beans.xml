@@ -29,21 +29,15 @@
       <property name="authenticationEntryPoint" ref="basicAuthEntryPoint" />
     </bean> 
 
-    <bean id="filterChain" class="org.springframework.security.web.FilterChainProxy">
-      <sec:filter-chain-map path-type="ant">
-     <sec:filter-chain pattern="**" filters="basicAuthFilter" />
-  </sec:filter-chain-map>
-    </bean>
-
-    <bean id="httpContext" class="server.FilterChainHttpContext">
-        <property name="filterChain" ref="filterChain"/>
+    <bean id="httpContext" class="server.osgi.BasicAuthHttpContext">
+        <property name="filter" ref="basicAuthFilter"/>
     </bean>
     
-    <bean class="server.OsgiServletRegisterer">
+    <bean class="server.osgi.OsgiServletRegisterer">
         <property name="alias" value="/spring-security"/>
         <property name="httpService" ref="httpservice"/>
         <property name="servlet" ref="osgiServlet"/>
-        <property name="httpContext" ref="httpContext"/>
+     <property name="httpContext" ref="httpContext"/>
     </bean>
     
     <bean id="osgiServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>

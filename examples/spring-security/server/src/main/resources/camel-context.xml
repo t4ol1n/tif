@@ -45,11 +45,12 @@
     <!--
           JAX-WS configurations
      -->
-    
+
     <endpoint 
 		address="camel://direct:customerServiceServerEndpoint"
 		implementor="#customerServiceImpl"
-		xmlns="http://cxf.apache.org/jaxws"/>
+		xmlns="http://cxf.apache.org/jaxws">
+    </endpoint>
 		
 	<bean id="customerServiceImpl" class="server.CustomerServiceImpl">
 	</bean>
