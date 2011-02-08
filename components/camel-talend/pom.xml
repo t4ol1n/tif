@@ -21,7 +21,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.talend.if</groupId>
+  <groupId>org.talend.camel</groupId>
   <artifactId>camel-talend</artifactId>
   <packaging>jar</packaging>
   <version>2.6.0.0-SNAPSHOT</version>
