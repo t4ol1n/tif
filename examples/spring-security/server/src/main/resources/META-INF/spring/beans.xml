@@ -8,18 +8,42 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:camel="http://camel.apache.org/schema/spring"
        xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:sec="http://www.springframework.org/schema/security"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/osgi  http://www.springframework.org/schema/osgi/spring-osgi.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+       ">
+       
+    <import resource="classpath:/camel-context.xml"/>
       
     <osgi:reference id="httpservice" interface="org.osgi.service.http.HttpService"/>
     
-    <bean class="server.ServletRegisterer">
+    <bean id="basicAuthEntryPoint" class="org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint">
+      <property name="realmName" value="Spring Security Example"/>
+    </bean>
+    
+    <bean id="basicAuthFilter" class="org.springframework.security.web.authentication.www.BasicAuthenticationFilter">
+      <property name="authenticationManager" ref="authenticationManager"/>
+      <property name="authenticationEntryPoint" ref="basicAuthEntryPoint" />
+    </bean> 
+
+    <bean id="filterChain" class="org.springframework.security.web.FilterChainProxy">
+      <sec:filter-chain-map path-type="ant">
+     <sec:filter-chain pattern="**" filters="basicAuthFilter" />
+  </sec:filter-chain-map>
+    </bean>
+
+    <bean id="httpContext" class="server.FilterChainHttpContext">
+        <property name="filterChain" ref="filterChain"/>
+    </bean>
+    
+    <bean class="server.OsgiServletRegisterer">
         <property name="alias" value="/spring-security"/>
-        <property name="name" value="CamelHttpServlet" />
         <property name="httpService" ref="httpservice"/>
         <property name="servlet" ref="osgiServlet"/>
+        <property name="httpContext" ref="httpContext"/>
     </bean>
     
     <bean id="osgiServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>
@@ -28,6 +52,6 @@
       <property name = "camelServletService" ref="osgiServlet" />
    </bean>
 
-   <import resource="classpath:/camel-context.xml"/>
+   
   
 </beans>
