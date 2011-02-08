@@ -146,7 +146,7 @@
             <unpack>false</unpack>
             <scope>runtime</scope>
             <includes>
-                <include>org.talend.if:camel-talend</include>
+                <include>org.talend.if:camel-tis</include>
             </includes>
         </dependencySet>
     </dependencySets>

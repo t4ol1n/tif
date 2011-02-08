@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>camel-talend</module>
+        <module>camel-tis</module>
     </modules>
 
 </project>
