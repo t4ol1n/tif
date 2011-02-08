@@ -15,4 +15,4 @@
 # limitations under the License.
 #
 
-class=org.talend.tif.camel.TalendComponent
+class=org.talend.camel.TalendComponent
