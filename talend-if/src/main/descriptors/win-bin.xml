@@ -138,4 +138,15 @@
         </file>
     </files>
 
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/lib</outputDirectory>
+            <unpack>false</unpack>
+            <scope>runtime</scope>
+            <includes>
+                <include>org.talend.if:camel-talend</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+
 </assembly>

@@ -50,6 +50,13 @@
             <classifier>features</classifier>
         </dependency>
 
+        <!-- TIF Components -->
+        <dependency>
+            <groupId>org.talend.if</groupId>
+            <artifactId>camel-talend</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
     <build>
         <resources>
