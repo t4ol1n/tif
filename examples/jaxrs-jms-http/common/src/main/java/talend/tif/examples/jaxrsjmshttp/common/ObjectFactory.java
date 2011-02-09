@@ -2,7 +2,7 @@
  * Copyright (C) 2010 Talend Inc. - www.talend.com
  */
 
-package common;
+package talend.tif.examples.jaxrsjmshttp.common;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

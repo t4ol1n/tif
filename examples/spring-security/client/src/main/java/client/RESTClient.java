@@ -9,14 +9,15 @@ import javax.ws.rs.WebApplicationException;
 
 import junit.framework.Assert;
 
+import com.talend.tif.examples.springsecurity.common.HelloWorld;
+import com.talend.tif.examples.springsecurity.common.User;
+import com.talend.tif.examples.springsecurity.common.UserImpl;
+
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.log4j.Logger;
 
-import common.HelloWorld;
-import common.User;
-import common.UserImpl;
 
 /**
  * Uses a JAX-RS proxy to access a jaxrs server with several users and credentials.

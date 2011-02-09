@@ -6,8 +6,9 @@ package service;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 
-import common.Book;
-import common.BookListener;
+import talend.tif.examples.jaxrsjmshttp.common.Book;
+import talend.tif.examples.jaxrsjmshttp.common.BookListener;
+
 
 /**
  * Sends a book to a the camel endpoint "direct:bookListener".

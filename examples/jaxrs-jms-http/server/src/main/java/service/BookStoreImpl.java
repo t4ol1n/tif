@@ -10,10 +10,11 @@ import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.ext.ProtocolHeaders;
 
-import common.Book;
-import common.BookList;
-import common.BookListener;
-import common.BookStore;
+import talend.tif.examples.jaxrsjmshttp.common.Book;
+import talend.tif.examples.jaxrsjmshttp.common.BookList;
+import talend.tif.examples.jaxrsjmshttp.common.BookListener;
+import talend.tif.examples.jaxrsjmshttp.common.BookStore;
+
 
 /**
  * Implementation of the book store service. This is mainly a pure pojo.

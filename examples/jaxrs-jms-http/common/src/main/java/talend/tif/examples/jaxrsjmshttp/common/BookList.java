@@ -1,4 +1,4 @@
-package common;
+package talend.tif.examples.jaxrsjmshttp.common;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;

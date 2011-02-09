@@ -2,7 +2,8 @@ package service;
 
 import org.apache.camel.Consume;
 
-import common.Book;
+import talend.tif.examples.jaxrsjmshttp.common.Book;
+
 
 /**
  * Shows how to attach to a camel route using pojo messaging.

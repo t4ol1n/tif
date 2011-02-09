@@ -27,6 +27,8 @@ public class CustomerServiceImpl implements CustomerService {
     @RolesAllowed("ROLE_USER")
     @Override
     public List<Customer> getCustomersByName(String name) throws NoSuchCustomerException {
+        
+        // The authenticated users can be retrieved from the spring security context at any time
     	String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         System.out.println("Customers matching name " + name + " are read by user " + userName);
         Customer customer = createDummyCustomer(name);

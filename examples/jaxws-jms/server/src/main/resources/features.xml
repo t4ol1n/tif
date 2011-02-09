@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${pom.version}/xml/features</repository>
+
+    <feature name='tif-example-jaxws-jms' version='${pom.version}'>
+        <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-jms</feature>
+        <feature version="${activemq.version}">activemq</feature>
+        <feature>http</feature>
+        
+        <bundle>mvn:${pom.groupId}/jaxws-jms-server/${pom.version}</bundle>
+    </feature>
+
+</features>

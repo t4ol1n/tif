@@ -20,7 +20,7 @@
  
     <import resource="classpath:META-INF/cxf/cxf.xml" />
     <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
-    <import resource="classpath:META-INF/cxf/cxf-extension-camel.xml" />
+    <import resource="classpath:META-INF/cxf/camel/cxf-extension-camel.xml" />
 
     <jaxrs:server address="camel://direct:bookStore" id="http-server">
         <jaxrs:serviceBeans>
@@ -62,7 +62,7 @@
         <route>
             <from uri="direct:bookListener" />
             <marshal>
-                <jaxb prettyPrint="true" contextPath="common" />
+                <jaxb prettyPrint="true" contextPath="talend.tif.examples.jaxrsjmshttp.common" />
             </marshal>
             <to uri="jms:test.books" />
         </route>

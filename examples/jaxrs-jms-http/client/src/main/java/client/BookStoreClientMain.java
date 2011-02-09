@@ -6,7 +6,8 @@ package client;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import common.BookStore;
+import talend.tif.examples.jaxrsjmshttp.common.BookStore;
+
 
 /**
  * Starter for the book store client

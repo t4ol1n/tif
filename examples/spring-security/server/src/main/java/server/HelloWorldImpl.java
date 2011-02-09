@@ -8,9 +8,10 @@ import java.util.Map;
 
 import javax.annotation.security.RolesAllowed;
 
-import common.HelloWorld;
-import common.User;
-import common.UserImpl;
+import com.talend.tif.examples.springsecurity.common.HelloWorld;
+import com.talend.tif.examples.springsecurity.common.User;
+import com.talend.tif.examples.springsecurity.common.UserImpl;
+
 
 public class HelloWorldImpl implements HelloWorld {	
     Map<Integer, User> users = new LinkedHashMap<Integer, User>();
@@ -21,17 +22,20 @@ public class HelloWorldImpl implements HelloWorld {
 
     @RolesAllowed("ROLE_USER")
     public String sayHi(String text) {
+        System.out.println("sayHi called with text: " + text);
         return "Hello " + text;
     }
 
     @RolesAllowed("ROLE_USER")
     public String sayHiToUser(User user) {
+        System.out.println("sayHi to user called for user : " + user.getName());
         users.put(users.size() + 1, user);
         return "Hello " + user.getName();
     }
 
     @RolesAllowed("ROLE_ADMIN")
     public Map<Integer, User> getUsers() {
+        System.out.println("getUsers called");
         return users;
     }
 

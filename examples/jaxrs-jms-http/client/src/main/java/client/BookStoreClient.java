@@ -1,8 +1,8 @@
 package client;
 
-import common.Book;
-import common.BookList;
-import common.BookStore;
+import talend.tif.examples.jaxrsjmshttp.common.Book;
+import talend.tif.examples.jaxrsjmshttp.common.BookList;
+import talend.tif.examples.jaxrsjmshttp.common.BookStore;
 
 /**
  * Business logic for a client that uses the book store. This class is a pure pojo 

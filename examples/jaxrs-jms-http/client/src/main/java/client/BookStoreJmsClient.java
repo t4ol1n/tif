@@ -9,9 +9,10 @@ import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 
-import common.Book;
-import common.BookList;
-import common.BookStore;
+import talend.tif.examples.jaxrsjmshttp.common.Book;
+import talend.tif.examples.jaxrsjmshttp.common.BookList;
+import talend.tif.examples.jaxrsjmshttp.common.BookStore;
+
 
 /**
  * CXF does not provide a JAX RS client API that can handle JMS transport. So we implement the BookStore
