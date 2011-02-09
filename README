@@ -26,4 +26,4 @@ and a number of advanced examples.
 The OSGi container uses Apache Karaf. It's a lightweight container
 providing advanced features such as provisioning, hot deployment,
 logger system, dynmamic configuration, complete shell environment, etc.
-It's profesional and production ready kermel for the TIF.
+It's profesional and production ready kernel for the TIF.
