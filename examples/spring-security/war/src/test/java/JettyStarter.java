@@ -20,7 +20,7 @@ public class JettyStarter {
     }
 
     private void run() throws Exception {
-        Server server = new org.eclipse.jetty.server.Server(9090);
+        Server server = new org.eclipse.jetty.server.Server(8080);
 
         WebAppContext webappcontext = new WebAppContext();
         webappcontext.setContextPath("/");

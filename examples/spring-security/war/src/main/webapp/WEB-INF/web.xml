@@ -59,7 +59,7 @@
 
   <servlet-mapping>
     <servlet-name>CamelServlet</servlet-name>
-    <url-pattern>/spring-security*</url-pattern>
+    <url-pattern>/spring-security/*</url-pattern>
   </servlet-mapping>
 
 </web-app>

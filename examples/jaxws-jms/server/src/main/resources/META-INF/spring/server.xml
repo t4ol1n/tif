@@ -3,12 +3,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:jaxws="http://cxf.apache.org/jaxws"
-    xmlns:osgi="http://camel.apache.org/schema/osgi"
 	xsi:schemaLocation="
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
-    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
-    http://camel.apache.org/schema/osgi http://camel.apache.org/schema/osgi/camel-osgi.xsd">
+    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
@@ -21,7 +19,7 @@
 	<bean id="greeterImpl" class="demo.jms_greeter.server.GreeterJMSImpl">
 	</bean>
 
-	<osgi:camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" >
+	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" >
 		<route>
 			<from uri="jms:test.cxf.jmstransport.queue" />
 			<to uri="direct:greeterServerEndpoint" />
@@ -36,7 +34,7 @@
 				<constant>jms://queue:test</constant>
 			</setHeader>
 		</route>
-	</osgi:camelContext>
+	</camelContext>
 	
 	<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
 		<property name="connectionFactory" ref="connectionFactory"/>
