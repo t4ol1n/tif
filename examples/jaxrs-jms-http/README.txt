@@ -1,5 +1,6 @@
 Example for publishing CXF JAXRS services using Camel
-==================================================================
+===============================================================================
+
 
 The example shows how a simple JAX-RS service called BookStore can be offered and used using 
 camel transports. The example also shows some best practices how to decouple your business logic from
@@ -9,66 +10,65 @@ The client project contains a standalone client that calls several service metho
 interface. 
 
 
-Building the Demo
----------------------------------------
-  
+Usage
+===============================================================================
+
+1) Building the Demo
+-------------------------------------------------------------------------------
+
 Using either UNIX or Windows:
 
-    mvn clean install
+> mvn clean install
 
 
-Running the JMS Broker
----------------------------------------
+2) Running the JMS Broker
+-------------------------------------------------------------------------------
+
 The sample requires a JMS broker to be running.  There are two
 ways to get a JMS broker running:
 
- * From the command line
-     In separate command windows/shells:
-     mvn -Pjms.broker
+2.1) From the command line
 
- * From within the Talend Service Factory OSGi container:
-     From the OSGi command line, run:
-         features:install tif-messaging (needs to be done only once)
-         activemq:create-broker 
-     That will create a new broker broker with the defaults and 
-     will then start it.
+In separate command windows/shells:
+> mvn -Pjms.broker
+
+2.2) From within the Talend Service Factory OSGi container:
+
+From the OSGi command line, run:
+
+karaf@tif> features:install tif-messaging
+karaf@tif> activemq:create-broker 
+
+That will create a new broker broker with the defaults and will then start it.
 
 
-Starting the Service
----------------------------------------
-  * Standalone
-     cd service ; mvn exec:java
+3) Starting the Service
+-------------------------------------------------------------------------------
+3.1) Standalone
+
+> cd service ; mvn exec:java
      
-  * In Jetty
-     cd war ; mvn jetty:run
+3.2) In Jetty
 
-  * From within the OSGi container
-     From the OSGi command line, run:
-	install mvn:com.talend.sf.examples.jaxws-jms-spec/jms-spec-common/1.0
-        install mvn:com.talend.sf.examples.jaxws-jms-spec/jms-spec-server/1.0
-     That should print out the bundle ID for the server bundle.  From 
-     the OSGi command line, then run
-        start 115
-     where 115 is the bundle ID number that was printed during install.
+> cd war ; mvn jetty:run
 
+3.3) From within the OSGi container
 
-Running the Client
----------------------------------------
-  * From the command line:
-     cd client ; mvn exec:java
-  * From within the OSGi container
-     From the OSGi command line, run:
-	install mvn:com.talend.sf.examples.jaxws-jms-spec/jms-spec-common/1.0
-        install mvn:com.talend.sf.examples.jaxws-jms-spec/jms-spec-client/1.0
-     That should print out the bundle ID for the client bundle.  From 
-     the OSGi command line, then run
-        start 115
-     where 115 is the bundle ID number that was printed during install.
+From the OSGi command line, run:
+
+karaf@tif> features:install tif-example-jaxws-jms
+
+"list | grep TIF" should now show the bundle of the example the server bundle should be in status started
+
+4) Running the Client
+-------------------------------------------------------------------------------
+ 
+From the command line:
+
+> cd client ; mvn exec:java
 
 
-
-Cleaning up
+5) Cleaning up
 ---------------------------------------
 To remove the code generated from the WSDL file and the .class
 files, run "mvn clean".
-

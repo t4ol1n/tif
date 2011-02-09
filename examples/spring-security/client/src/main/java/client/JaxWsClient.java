@@ -21,20 +21,20 @@ import com.example.customerservice.NoSuchCustomerException;
  * Also see the user and roles config in common-security
  */
 public class JaxWsClient {
-	Logger log = Logger.getLogger(JaxWsClient.class);
-	
+    Logger log = Logger.getLogger(JaxWsClient.class);
+
     public static void main(String[] args) throws NoSuchCustomerException {
-    	System.setProperty("org.apache.cxf.Logger", "org.apache.cxf.common.logging.Log4jLogger");
+        System.setProperty("org.apache.cxf.Logger", "org.apache.cxf.common.logging.Log4jLogger");
         new JaxWsClient().run();
     }
 
-	private void run() {
-		JaxWsProxyFactoryBean factoryBean = new JaxWsProxyFactoryBean();
-		factoryBean.setAddress("http://localhost:8080/spring-security/CustomerServicePort");
-		factoryBean.setServiceClass(CustomerService.class);
-		CustomerService customerService =  factoryBean.create(CustomerService.class);
+    private void run() {
+        JaxWsProxyFactoryBean factoryBean = new JaxWsProxyFactoryBean();
+        factoryBean.setAddress("http://localhost:8080/spring-security/CustomerServicePort");
+        factoryBean.setServiceClass(CustomerService.class);
+        CustomerService customerService = factoryBean.create(CustomerService.class);
 
-		// Anonymous should not be able to read customers
+        // Anonymous should not be able to read customers
         try {
             List<Customer> customersByName = customerService.getCustomersByName("Fred");
             customersByName.get(0);
@@ -42,14 +42,14 @@ public class JaxWsClient {
         } catch (Exception e) {
             log.info("Anonymous request was correctly denied. " + getMessage(e));
         }
-        
+
         // Alex should not be able to read customers
         CredentialsInjector.inject(customerService, "alex", "alexspassword");
         try {
             customerService.getCustomersByName("Test");
             Assert.fail("Alex should not be allowed to read customers");
         } catch (Exception e) {
-        	log.info("Alex's request was correctly denied. " + getMessage(e));
+            log.info("Alex's request was correctly denied. " + getMessage(e));
         }
 
         // Bob should be able to read customers but not to update
@@ -65,10 +65,10 @@ public class JaxWsClient {
         try {
             Customer customer = new Customer();
             customer.setName("Fred");
-            customerService.updateCustomer(customer );
+            customerService.updateCustomer(customer);
             Assert.fail("Bob should not be allowed to update a customer");
         } catch (Exception e) {
-        	log.info("Bob's request was correctly denied. " + getMessage(e));
+            log.info("Bob's request was correctly denied. " + getMessage(e));
         }
 
         // Jim should be able to read and update customers
@@ -84,21 +84,21 @@ public class JaxWsClient {
         try {
             Customer customer = new Customer();
             customer.setName("Fred");
-            customerService.updateCustomer(customer );
+            customerService.updateCustomer(customer);
             log.info("Jim was able to update the customer");
         } catch (Exception e) {
             Assert.fail("Jim should be allowed to update a customer");
         }
         log.info("All request were processed as expected");
-	}
-    
+    }
+
     public String getMessage(Exception e) {
-    	String message = "Error Message: " + e.getMessage();
-    	Throwable cause = e.getCause();
-    	if (cause != null) {
-    		return message + " cause: " + cause.getMessage();
-    	} else {
-    		return message; 
-    	}
+        String message = "Error Message: " + e.getMessage();
+        Throwable cause = e.getCause();
+        if (cause != null) {
+            return message + " cause: " + cause.getMessage();
+        } else {
+            return message;
+        }
     }
 }
