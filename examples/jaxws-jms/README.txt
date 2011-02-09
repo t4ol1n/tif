@@ -23,7 +23,8 @@ ways to get a JMS broker running:
 
  * From within the Talend Service Factory OSGi container:
      From the OSGi command line, run:
-         activemq:create-broker 
+         features:install tif-messaging (needs to be done only once)
+         activemq:create-broker
      That will create a new broker broker with the defaults and 
      will then start it.
 
