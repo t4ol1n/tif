@@ -34,14 +34,6 @@
             <classifier>features</classifier>
         </dependency>
 
-        <!-- Apache ActiveMQ -->
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-karaf</artifactId>
-            <type>xml</type>
-            <classifier>features</classifier>
-        </dependency>
-
         <!-- Apache Camel -->
         <dependency>
             <groupId>org.apache.camel.karaf</groupId>
@@ -95,7 +87,7 @@
                         <configuration>
                             <descriptors>
                                 <descriptor>mvn:org.apache.karaf/apache-karaf/${karaf.version}/xml/features</descriptor>
-                                <descriptor>mvn:org.apache.activemq/activemq-karaf/${activemq.version}/xml/features</descriptor>
+                                <descriptor>file:${basedir}/target/classes/activemq-features.xml</descriptor>
                                 <descriptor>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</descriptor>
                                 <descriptor>file:${basedir}/target/classes/features.xml</descriptor>
                             </descriptors>
@@ -243,14 +235,6 @@
                                     <classifier>features</classifier>
                                     <outputDirectory>target/dependencies</outputDirectory>
                                     <destFileName>apache-camel-features.xml</destFileName>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.apache.activemq</groupId>
-                                    <artifactId>activemq-karaf</artifactId>
-                                    <type>xml</type>
-                                    <classifier>features</classifier>
-                                    <outputDirectory>target/dependencies</outputDirectory>
-                                    <destFileName>apache-activemq-features.xml</destFileName>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>

@@ -123,7 +123,7 @@
             <lineEnding>dos</lineEnding>
         </file>
         <file>
-            <source>${basedir}/target/dependencies/apache-activemq-features.xml</source>
+            <source>${basedir}/target/classes/activemq-features.xml</source>
             <outputDirectory>/container/system/org/apache/activemq/activemq-karaf/${activemq.version}</outputDirectory>
             <destName>activemq-karaf-${activemq.version}-features.xml</destName>
             <fileMode>0644</fileMode>

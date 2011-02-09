@@ -90,15 +90,6 @@
     <dependencyManagement>
         <dependencies>
 
-            <!-- Apache ActiveMQ -->
-            <dependency>
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>activemq-karaf</artifactId>
-                <version>${activemq.version}</version>
-                <type>xml</type>
-                <classifier>features</classifier>
-            </dependency>
-
             <!-- Apache Camel -->
             <dependency>
                 <groupId>org.apache.camel.karaf</groupId>
