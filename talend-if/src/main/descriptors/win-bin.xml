@@ -80,8 +80,8 @@
             <directory>${basedir}/..</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-                <include>README</include>
-                <include>LICENSE</include>
+                <include>README.txt</include>
+                <include>LICENSE.txt</include>
                 <!--include>RELEASE*</include-->
             </includes>
             <lineEnding>unix</lineEnding>
