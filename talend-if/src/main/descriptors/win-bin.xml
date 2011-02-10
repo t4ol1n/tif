@@ -103,6 +103,10 @@
         <fileSet>
             <directory>target/features-repo</directory>
             <outputDirectory>/container/system</outputDirectory>
+            <excludes>
+                <!-- IF-23: exclude the aries blueprint copied by camel-blueprint feature to take the Karaf' one -->
+                <exclude>org/apache/aries/blueprint/**</exclude>
+            </excludes>
         </fileSet>
 
     </fileSets>
