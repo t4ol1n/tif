@@ -7,18 +7,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.talend.if.examples</groupId>
-    <artifactId>talend-if-examples</artifactId>
+    <groupId>com.talend.if.examples.blueprint</groupId>
+    <artifactId>blueprint</artifactId>
     <version>1.0</version>
-    <name>TIF :: Examples</name>
     <packaging>pom</packaging>
-
-    <modules>
-        <module>jaxws-jms</module>
-        <module>jaxrs-jms-http</module>
-        <module>spring-security</module>
-        <module>blueprint</module>
-    </modules>
+    <name>TIF :: Examples :: blueprint</name>
+    <description>Simple example of Camel routes definition in a blueprint descriptor</description>
 
 </project>
-

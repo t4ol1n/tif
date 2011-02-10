@@ -10,11 +10,14 @@ jaxws-jms
 spring-security
    Securing Camel routes and CXF endpoints using spring security
 
+blueprint
+    Deploy Camel routes using a simple blueprint descriptor
+
 
 Getting Help
 ===============================================================================
 
-If the examples don´t work as expected or you have problem adapting them to your projects do not hesitate 
+If the examples donï¿½t work as expected or you have problem adapting them to your projects do not hesitate 
 to ask for help.
 
 Talend provides free support on the CXF and Camel mailing lists, irc channels and on the Talend Forums.

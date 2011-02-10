@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+
+    <!--
+        Copyright (C) 2010 Talend Inc. - www.talend.com
+    -->
+
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
+
+    <feature name="tif-example-blueprint-simple" version="${project.version}">
+        <feature version="${camel.version}">camel-blueprint</feature>
+        <feature version="${camel.version}">camel-stream</feature>
+        <bundle>blueprint:file:examples/blueprint/simple.xml</bundle>
+    </feature>
+
+    <feature name="tif-exemple-blueprint-recipientlist" version="${project.version}">
+        <feature version="${camel.version}">camel-blueprint</feature>
+        <feature version="${camel.version}">camel-stream</feature>
+        <bundle>blueprint:file:examples/blueprint/recipientlist.xml</bundle>
+    </feature>
+
+</features>
