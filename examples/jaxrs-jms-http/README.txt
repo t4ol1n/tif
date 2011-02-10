@@ -1,7 +1,6 @@
 Example for publishing CXF JAXRS services using Camel
 ===============================================================================
 
-
 The example shows how a simple JAX-RS service called BookStore can be offered and used using 
 camel transports. The example also shows some best practices how to decouple your business logic from
 the Camel and CXF frameworks.  
@@ -13,11 +12,11 @@ interface.
 Usage
 ===============================================================================
 
+
 1) Building the Demo
 -------------------------------------------------------------------------------
 
 Using either UNIX or Windows:
-
 > mvn clean install
 
 
@@ -28,43 +27,35 @@ The sample requires a JMS broker to be running.  There are two
 ways to get a JMS broker running:
 
 2.1) From the command line
-
 In separate command windows/shells:
 > mvn -Pjms.broker
 
 2.2) From within the Talend Service Factory OSGi container:
-
 From the OSGi command line, run:
-
 karaf@tif> features:install tif-messaging
 karaf@tif> activemq:create-broker 
-
 That will create a new broker broker with the defaults and will then start it.
 
 
 3) Starting the Service
 -------------------------------------------------------------------------------
-3.1) Standalone
 
+3.1) Standalone
 > cd service ; mvn exec:java
      
 3.2) In Jetty
-
 > cd war ; mvn jetty:run
 
 3.3) From within the OSGi container
-
 From the OSGi command line, run:
-
 karaf@tif> features:install tif-example-jaxws-jms
-
 "list | grep TIF" should now show the bundle of the example the server bundle should be in status started
+
 
 4) Running the Client
 -------------------------------------------------------------------------------
  
 From the command line:
-
 > cd client ; mvn exec:java
 
 

@@ -6,10 +6,8 @@ package server.osgi;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import javax.servlet.Servlet;
 import javax.servlet.http.HttpServlet;
 
-import org.apache.camel.component.servlet.CamelHttpTransportServlet;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.HttpService;
 import org.springframework.beans.factory.InitializingBean;

@@ -23,6 +23,7 @@
     <import resource="classpath:/common-security.xml"/>
     <import resource="classpath:/META-INF/cxf/cxf.xml"/>
     <import resource="classpath:/META-INF/cxf/cxf-extension-jaxrs-binding.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-jaxws.xml" />
     <import resource="classpath:/META-INF/cxf/cxf-extension-soap.xml"/>
     <import resource="classpath:/META-INF/cxf/camel/cxf-extension-camel.xml"/>
 
@@ -79,7 +80,7 @@
     <bean id="stripPrefix" class="server.StripPrefixProcessor">
     </bean>
 
-    <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" trace="true">
+    <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" trace="false">
         <route>
             <from uri="servlet:///HelloWorld?matchOnUriPrefix=true"/>
             <bean ref="stripPrefix"/>

@@ -15,8 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.http.HttpContext;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 
 /**
  * <p>
@@ -27,9 +30,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class BasicAuthHttpContext implements HttpContext {
 
     private Filter filter;
+    private AuthenticationEntryPoint authenticationEntryPoint;
 
     public void setFilter(Filter filter) {
         this.filter = filter;
+    }
+
+    public void setAuthenticationEntryPoint(AuthenticationEntryPoint authenticationEntryPoint) {
+        this.authenticationEntryPoint = authenticationEntryPoint;
     }
 
     @Override
@@ -50,6 +58,8 @@ public class BasicAuthHttpContext implements HttpContext {
             filter.doFilter(request, response, dummyFilter);
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             if (auth == null) {
+                AuthenticationException ex = new AuthenticationCredentialsNotFoundException("Anonymous access denied");
+                authenticationEntryPoint.commence(request, response, ex);
                 return false;
             }
             return dummyFilter.isCalled();
