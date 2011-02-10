@@ -48,4 +48,5 @@ public class IntegerUserMap {
             return user;
         }
     }
+
 }

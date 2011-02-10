@@ -1,16 +1,16 @@
 /**
  * Copyright (C) 2010 Talend Inc. - www.talend.com
  */
-
-
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 /**
+ * <
  * Starts a jetty server for the project.
  * This is mainly to run and debug the tests in you ide.
  * For production you would either build a war file or deploy
- * the project to an osgi runtime like karaf
+ * the project to an osgi runtime like karaf.
+ * </p>
  */
 public class JettyStarter {
 

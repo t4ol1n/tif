@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2010 Talend Inc. - www.talend.com -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <!--
+        Copyright (C) 2010 Talend Inc. - www.talend.com
+    -->
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.talend.if.examples.jaxrs-jms-http</groupId>
-    <artifactId>jaxrs-jms-http-common</artifactId>
-    <packaging>bundle</packaging>
-    <version>1.0</version>
-    <name>TIF :: Examples :: jaxrs-jms-http :: common</name>
 
     <parent>
         <groupId>com.talend.if.examples.jaxrs-jms-http</groupId>
@@ -17,20 +13,9 @@
         <version>1.0</version>
     </parent>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <artifactId>jaxrs-jms-http-common</artifactId>
+    <packaging>bundle</packaging>
+    <name>TIF :: Examples :: jaxrs-jms-http :: common</name>
 
     <dependencies>
         <dependency>
@@ -51,5 +36,20 @@
             <version>1.1.1</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

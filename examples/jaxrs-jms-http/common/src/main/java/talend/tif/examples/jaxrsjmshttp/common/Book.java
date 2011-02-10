@@ -6,10 +6,10 @@ package talend.tif.examples.jaxrsjmshttp.common;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 @XmlRootElement(namespace = "http://books", name = "Book")
 @XmlType
 public class Book {
+
     private String name;
     private long id;
     
@@ -45,6 +45,5 @@ public class Book {
     public long getId() {
         return id;
     }
-    
 
 }

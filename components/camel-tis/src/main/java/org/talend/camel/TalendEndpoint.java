@@ -1,7 +1,6 @@
 /**
  * Copyright (C) 2010 Talend Inc. - www.talend.com
  */
-
 package org.talend.camel;
 
 import java.lang.reflect.Method;
@@ -13,9 +12,12 @@ import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.impl.DefaultEndpoint;
 
 /**
+ * <p>
  * Represents a Talend endpoint.
+ * </p>
  */
 public class TalendEndpoint extends DefaultEndpoint {
+
     private String clazz;
     private String context;
     private Object jobInstance;

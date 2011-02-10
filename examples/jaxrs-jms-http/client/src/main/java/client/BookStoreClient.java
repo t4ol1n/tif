@@ -1,3 +1,6 @@
+/**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
+ */
 package client;
 
 import talend.tif.examples.jaxrsjmshttp.common.Book;
@@ -5,9 +8,11 @@ import talend.tif.examples.jaxrsjmshttp.common.BookList;
 import talend.tif.examples.jaxrsjmshttp.common.BookStore;
 
 /**
+ * <p>
  * Business logic for a client that uses the book store. This class is a pure pojo 
  * without any references to Camel or CXF. So it can be easily tested using a mock or stub service
- * implementation.  
+ * implementation.
+ * </p>
  */
 public class BookStoreClient {
 

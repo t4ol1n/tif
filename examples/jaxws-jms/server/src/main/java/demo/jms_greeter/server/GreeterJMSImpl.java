@@ -32,4 +32,5 @@ public class GreeterJMSImpl implements JMSGreeterPortType {
         System.out.println("Executing operation greetMeOneWay\n");
         System.out.println("Hello there " + me);
     }
+
 }

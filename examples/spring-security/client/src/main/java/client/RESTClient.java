@@ -18,15 +18,17 @@ import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.log4j.Logger;
 
-
 /**
+ * <p>
  * Uses a JAX-RS proxy to access a jaxrs server with several users and credentials.
- * Depending on the user's roles the operation should work or be denied	
+ * Depending on the user's roles the operation should work or be denied.
+ * </p>
  */
 public final class RESTClient {
-	Logger log = Logger.getLogger(JaxWsClient.class);
+
+	private final Logger logger = Logger.getLogger(JaxWsClient.class);
+
 	final static String address = "http://localhost:8080/spring-security/HelloWorld";
-	
 
     public static void main(String[] args) throws Exception {
     	System.out.println("Using CXF JAX-RS proxy to invoke on HelloWorld service");
@@ -95,6 +97,5 @@ public final class RESTClient {
             System.out.println(entry.getValue().getName());
         }
     }
-
 
 }

@@ -6,7 +6,9 @@ package client;
 import javax.xml.ws.BindingProvider;
 
 /**
- * Adds basic auth credentials to a service proxy
+ * <p>
+ * Adds basic auth credentials to a service proxy.
+ * </p>
  */
 public class CredentialsInjector {
     
@@ -15,4 +17,5 @@ public class CredentialsInjector {
         bp.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, username);
         bp.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, password);
     }
+
 }

@@ -1,3 +1,6 @@
+/**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
+ */
 package client;
 
 import java.util.HashMap;
@@ -13,14 +16,15 @@ import talend.tif.examples.jaxrsjmshttp.common.Book;
 import talend.tif.examples.jaxrsjmshttp.common.BookList;
 import talend.tif.examples.jaxrsjmshttp.common.BookStore;
 
-
 /**
+ * <p>
  * CXF does not provide a JAX RS client API that can handle JMS transport. So we implement the BookStore
  * interface ourself. So the client code stays the same. Camel helps us by providing methods that make
  * coding the client very easy in most cases.
- * 
+ * </p>
  */
 public class BookStoreJmsClient implements BookStore {
+
     private static final String JMS_URI = "jms://test.bookStore";
     @EndpointInject
     ProducerTemplate producer;

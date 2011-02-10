@@ -4,5 +4,7 @@
 package talend.tif.examples.jaxrsjmshttp.common;
 
 public interface BookListener {
+
     void onBook(Book book);
+
 }

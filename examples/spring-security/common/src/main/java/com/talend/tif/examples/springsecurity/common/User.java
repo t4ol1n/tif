@@ -9,4 +9,5 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public interface User {
 
     String getName();
+
 }

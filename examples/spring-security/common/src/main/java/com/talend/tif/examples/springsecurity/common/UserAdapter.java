@@ -6,6 +6,7 @@ package com.talend.tif.examples.springsecurity.common;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 public class UserAdapter extends XmlAdapter<UserImpl, User> {
+
     public UserImpl marshal(User v) throws Exception {
         if (v instanceof UserImpl) {
             return (UserImpl)v;
@@ -16,4 +17,5 @@ public class UserAdapter extends XmlAdapter<UserImpl, User> {
     public User unmarshal(UserImpl v) throws Exception {
         return v;
     }
+
 }

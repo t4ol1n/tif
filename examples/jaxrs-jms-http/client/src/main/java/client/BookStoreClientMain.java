@@ -10,10 +10,13 @@ import talend.tif.examples.jaxrsjmshttp.common.BookStore;
 
 
 /**
- * Starter for the book store client
- * 
+ * <p>
+ * Starter for the book store client.
+ * </p>
+ * <p>
  * Shows how to run the book store client using a proxy to the service that calls
- * the service using JMS and HTTP
+ * the service using JMS and HTTP.
+ * </p>
  */
 public class BookStoreClientMain {
     

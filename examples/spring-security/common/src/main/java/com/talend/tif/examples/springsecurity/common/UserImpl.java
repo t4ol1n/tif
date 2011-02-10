@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "User")
 @XmlType(name = "User")
 public class UserImpl implements User {
+
     String name;
 
     public UserImpl() {
@@ -33,4 +34,5 @@ public class UserImpl implements User {
     public boolean equals(Object o) {
         return o instanceof User && name.equals(((User)o).getName());
     }
+
 }

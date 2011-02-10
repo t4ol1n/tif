@@ -12,8 +12,8 @@ import com.talend.tif.examples.springsecurity.common.HelloWorld;
 import com.talend.tif.examples.springsecurity.common.User;
 import com.talend.tif.examples.springsecurity.common.UserImpl;
 
+public class HelloWorldImpl implements HelloWorld {
 
-public class HelloWorldImpl implements HelloWorld {	
     Map<Integer, User> users = new LinkedHashMap<Integer, User>();
     
     public HelloWorldImpl() {

@@ -1,7 +1,6 @@
 /**
  * Copyright (C) 2010 Talend Inc. - www.talend.com
  */
-
 package org.talend.camel;
 
 import java.lang.reflect.Method;
@@ -15,9 +14,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
+ * <p>
  * The Talend producer.
+ * </p>
  */
 public class TalendProducer extends DefaultProducer {
+
     private static final transient Log LOG = LogFactory.getLog(TalendProducer.class);
     private static final String[] EMPTY_STRING_ARRAY = {};
     

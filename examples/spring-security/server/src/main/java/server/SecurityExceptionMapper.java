@@ -1,6 +1,6 @@
 /**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
  */
-
 package server;
 
 import javax.ws.rs.core.Response;

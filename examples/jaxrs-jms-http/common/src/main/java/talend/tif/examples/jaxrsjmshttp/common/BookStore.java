@@ -18,6 +18,7 @@ import org.apache.cxf.jaxrs.ext.Oneway;
 @Produces({"text/xml", "application/xml" })
 @Consumes({"text/xml", "application/xml" })
 public interface BookStore {
+
     @GET
     @Path("{bookId}")
     Book getBook(@PathParam("bookId") Long id);
@@ -31,4 +32,5 @@ public interface BookStore {
     
     @GET
     BookList listBooks();
+
 }

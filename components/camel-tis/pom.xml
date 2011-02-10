@@ -1,138 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    Licensed to the Apache Software Foundation (ASF) under one or more
-    contributor license agreements.  See the NOTICE file distributed with
-    this work for additional information regarding copyright ownership.
-    The ASF licenses this file to You under the Apache License, Version 2.0
-    (the "License"); you may not use this file except in compliance with
-    the License.  You may obtain a copy of the License at
+    <!--
+        Copyright (C) 2010 Talend Inc. - www.talend.com
+    -->
 
-       http://www.apache.org/licenses/LICENSE-2.0
+    <modelVersion>4.0.0</modelVersion>
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+    <groupId>org.talend.camel</groupId>
+    <artifactId>camel-tis</artifactId>
+    <packaging>jar</packaging>
+    <version>2.6.0.0-SNAPSHOT</version>
 
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <name>TIF :: Talend Component</name>
+    <url>http://www.talend.org</url>
 
-  <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <camel.version>2.6.0</camel.version>
+    </properties>
 
-  <groupId>org.talend.camel</groupId>
-  <artifactId>camel-tis</artifactId>
-  <packaging>jar</packaging>
-  <version>2.6.0.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
 
-  <name>TIF :: Talend Component</name>
-  <url>http://www.talend.org</url>
+        <!-- logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.11</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <camel.version>2.6.0</camel.version>
-  </properties>
+        <!-- for testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test</artifactId>
+            <version>${camel.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-core</artifactId>
-      <version>${camel.version}</version>
-    </dependency>  
+        <!-- TOS job jars used for testing -->
+        <dependency>
+            <groupId>talendesb</groupId>
+            <artifactId>jobcamel</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/test/lib/jobcamel_0_1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>talendesb</groupId>
+            <artifactId>javacsv</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/test/lib/javacsv.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>talendesb</groupId>
+            <artifactId>routineTest</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/test/lib/routineTest.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>talendesb</groupId>
+            <artifactId>systemRoutines</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/test/lib/systemRoutines.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>talendesb</groupId>
+            <artifactId>userRoutines</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/test/lib/userRoutines.jar</systemPath>
+        </dependency>
 
-    <!-- logging -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.5.11</version>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.16</version>
-    </dependency>
+    </dependencies>
 
-    <!-- for testing -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>   
-      <version>4.8.1</version>   
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-test</artifactId>
-      <version>${camel.version}</version>      
-      <scope>test</scope>
-    </dependency>
+    <build>
+        <defaultGoal>install</defaultGoal>
 
-    <!-- TOS job jars used for testing -->
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>jobcamel</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/jobcamel_0_1.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>javacsv</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/javacsv.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>routineTest</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/routineTest.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>systemRoutines</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/systemRoutines.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>talendesb</groupId>
-      <artifactId>userRoutines</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/src/test/lib/userRoutines.jar</systemPath>
-    </dependency>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.7.1</version>
+                <configuration>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${basedir}/target/test-classes/jobcamel_0_1.jar
+                        </additionalClasspathElement>
+                        <additionalClasspathElement>${basedir}/target/test-classes/javacsv.jar
+                        </additionalClasspathElement>
+                        <additionalClasspathElement>${basedir}/target/test-classes/routineTest.jar
+                        </additionalClasspathElement>
+                        <additionalClasspathElement>${basedir}/target/test-classes/systemRoutines.jar
+                        </additionalClasspathElement>
+                        <additionalClasspathElement>${basedir}/target/test-classes/userRoutines.jar
+                        </additionalClasspathElement>
+                    </additionalClasspathElements>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-  </dependencies>
-
-  <build>
-    <defaultGoal>install</defaultGoal>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.7.1</version>
-        <configuration>
-          <additionalClasspathElements>
-            <additionalClasspathElement>${basedir}/target/test-classes/jobcamel_0_1.jar</additionalClasspathElement>
-            <additionalClasspathElement>${basedir}/target/test-classes/javacsv.jar</additionalClasspathElement>
-            <additionalClasspathElement>${basedir}/target/test-classes/routineTest.jar</additionalClasspathElement>
-            <additionalClasspathElement>${basedir}/target/test-classes/systemRoutines.jar</additionalClasspathElement>
-            <additionalClasspathElement>${basedir}/target/test-classes/userRoutines.jar</additionalClasspathElement>
-          </additionalClasspathElements>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>

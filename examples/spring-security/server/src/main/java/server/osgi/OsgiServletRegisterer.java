@@ -1,3 +1,6 @@
+/**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
+ */
 package server.osgi;
 
 import java.util.Dictionary;
@@ -13,11 +16,14 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.Lifecycle;
 
 /**
+ * <
  * Register the given (CamelHttpTransport) Servlet with the OSGI 
  * <a href="http://www.osgi.org/javadoc/r4v42/org/osgi/service/http/HttpService.html">
- * HttpService</a>
+ * HttpService</a>.
+ * </p>
  */
 public class OsgiServletRegisterer implements Lifecycle, InitializingBean {
+
     /**
      * The alias is the name in the URI namespace of the Http Service at which the registration will be mapped
      * An alias must begin with slash ('/') and must not end with slash ('/'), with the exception that an alias 

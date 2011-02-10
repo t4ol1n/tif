@@ -1,4 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <features name="activemq-${activemq.version}">
+
+    <!--
+        Copyright (C) 2010 Talend Inc. - www.talend.com
+    -->
 
     <feature name="activemq" version="${activemq.version}">
         <bundle>mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/1.1.1</bundle>
@@ -40,4 +45,5 @@
     <feature name="activemq-web-console" version="${activemq.version}">
         <bundle>war:mvn:org.apache.activemq/activemq-web-console/5.4.2/war?Webapp-Context=activemq-web-console</bundle>
     </feature>
+
 </features>

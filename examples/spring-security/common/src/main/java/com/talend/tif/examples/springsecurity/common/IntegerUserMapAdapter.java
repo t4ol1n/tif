@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 public class IntegerUserMapAdapter extends XmlAdapter<IntegerUserMap, Map<Integer, User>> {
+
     public IntegerUserMap marshal(Map<Integer, User> v) throws Exception {
         IntegerUserMap map = new IntegerUserMap();
         for (Map.Entry<Integer, User> e : v.entrySet()) {

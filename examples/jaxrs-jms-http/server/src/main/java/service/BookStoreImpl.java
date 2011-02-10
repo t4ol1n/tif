@@ -15,11 +15,12 @@ import talend.tif.examples.jaxrsjmshttp.common.BookList;
 import talend.tif.examples.jaxrsjmshttp.common.BookListener;
 import talend.tif.examples.jaxrsjmshttp.common.BookStore;
 
-
 /**
+ * <p>
  * Implementation of the book store service. This is mainly a pure pojo.
  * One big advantage of that is that you can test it without any container
- * using a simple unit test 
+ * using a simple unit test.
+ * </p>
  */
 public class BookStoreImpl implements BookStore {
 
@@ -73,7 +74,6 @@ public class BookStoreImpl implements BookStore {
     public void setBookListener(BookListener bookListener) {
         this.bookListener = bookListener;
     }
-
 
 }
 

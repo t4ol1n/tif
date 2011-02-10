@@ -1,7 +1,6 @@
 /**
  * Copyright (C) 2010 Talend Inc. - www.talend.com
  */
-
 package org.talend.camel;
 
 import java.util.Map;
@@ -11,7 +10,9 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.impl.DefaultComponent;
 
 /**
+ * <p>
  * Represents the component that manages {@link TalendEndpoint}.
+ * </p>
  */
 public class TalendComponent extends DefaultComponent {
     public TalendComponent() {

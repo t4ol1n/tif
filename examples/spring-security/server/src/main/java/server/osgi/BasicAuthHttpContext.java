@@ -1,3 +1,6 @@
+/**
+ * Copyright (C) 2010 Talend Inc. - www.talend.com
+ */
 package server.osgi;
 
 import java.io.IOException;
@@ -16,10 +19,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
+ * <p>
  * Delegates to the filter to do the authentication and requires that the authentication
- * was succesfull
+ * was succesfull.
+ * </p>
  */
 public class BasicAuthHttpContext implements HttpContext {
+
     private Filter filter;
 
     public void setFilter(Filter filter) {
@@ -66,4 +72,5 @@ public class BasicAuthHttpContext implements HttpContext {
         }
         
     }
+
 }

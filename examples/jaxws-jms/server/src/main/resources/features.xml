@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features>
+
+    <!--
+        Copyright (C) 2010 Talend Inc. - www.talend.com
+    -->
+
     <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
 
     <feature name='tif-example-jaxws-jms' version='${pom.version}'>
