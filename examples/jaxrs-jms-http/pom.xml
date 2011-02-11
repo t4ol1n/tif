@@ -64,4 +64,27 @@
         </pluginManagement>
     </build>
 
+    <profiles>
+        <profile>
+            <id>jms.broker</id>
+            <build>
+                <defaultGoal>test</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.activemq.tooling</groupId>
+                        <artifactId>maven-activemq-plugin</artifactId>
+                        <version>${activemq.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
