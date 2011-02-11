@@ -29,7 +29,7 @@
        See http://camel.apache.org/activemq.html for more information.
   -->
   <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-    <property name="brokerURL" value="vm://mybroker"/>
+    <property name="brokerURL" value="vm://mybroker?broker.persistent=false"/>
   </bean>
   
   <bean id="randomDelayer" class="org.apache.camel.example.claimcheck.RandomDelayer">
