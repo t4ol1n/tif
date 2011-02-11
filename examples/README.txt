@@ -1,23 +1,23 @@
-TIF Examples
+﻿TIF Examples
 ===============================================================================
 
 jaxrs-jms-http
-   Publishing and using the same jaxrs implmentation using http and jms
+   Publishing and using the same jaxrs implmentation with both http and jms
 
 jaxws-jms
    Publishing and using a CXF JAX-WS service using SOAP/JMS
 
-spring-security
-   Securing Camel routes and CXF endpoints using spring security
+Spring-security
+   Securing Camel routes and CXF endpoints using Spring security
 
 blueprint
-    Deploy Camel routes using a simple blueprint descriptor
+   Deploying Camel routes using a simple blueprint descriptor
 
 
 Getting Help
 ===============================================================================
 
-If the examples don�t work as expected or you have problem adapting them to your projects do not hesitate 
+If the examples don't work as expected or you have problem adapting them to your projects do not hesitate 
 to ask for help.
 
 Talend provides free support on the CXF and Camel mailing lists, irc channels and on the Talend Forums.
@@ -42,50 +42,49 @@ should rather be placed on Talend channels.
 Design Notes / Common Patterns in the examples
 ===============================================================================
 
-Most examples use hierarchical maven project with a top level pom that is also the parent and several 
+Most examples use a hierarchical Maven project with a top level pom that is also the parent and several 
 subprojects:
 
-- client : Client code that can typically be called using maven exec:java
+- client : Client code that can typically be called using "mvn exec:java"
 - common : Model objects or generated code that is shared between client and server
 - server: Server implementation and eventually starters
 - war : Packages common + server into a .war archive to be deployed on a servlet container
 
-The structure and patterns used in the examples incorporates many best practices that are well known
-for maven projects. Still some of them are described below as especially people with no maven background
-will probably not know them.
+The structure and patterns used in the examples incorporate many best and well-known practices for Maven projects. Some of them are described below for those with little or no Maven background knowledge.
 
 
 Running standalone
 -------------------------------------------------------------------------------
 
-To run the examples standalone mvn exec:java is used. If there is only one Starter class then this is configured in
-the pom so no extra parameters are needed. If there are more Starter classes then the class has to be specified using
-mvn exec:java -Dexec.mainClass=<Full Qualified Name of the starter class>.
-The starter classes typically load a Spring Context. The server starters start directly from the spring context. The client
+To run the standalone examples mvn exec:java is used. If there is only one Starter class then this command will be configured 
+to activate that clas in the Maven pom file so no extra parameters will be needed. If there are multiple starter classes then 
+the class you would like to run will have to be specified using mvn exec:java -Dexec.mainClass=<fully qualified name of the starter class>.
+The starter classes typically load a Spring Context. The server starters start directly from the Spring context. The client
 starters retrieve the client from the context and start it.
 
 
-Running in Servlet Container
+Running in a Servlet Container
 -------------------------------------------------------------------------------
 
-The server project contains only the server implementation and the spring context. The war project contains the web.xml and
-all other web resources needed to create a complete .war archive. In the pom.xml the maven jetty plugin is configured so the war can
+The server project contains only the server implementation and the Spring context. The war project contains the web.xml and
+all other web resources needed to create a complete .war archive. In the pom.xml the Maven Jetty plugin is configured so the war can
 be easily deployed and started using "mvn jetty:run".
 
-Additionally the /src/test/java contains a JettyStarter.java that can be started from eclipse as a Java Appliction for easy debugging.
+Additionally the /src/test/java contains a JettyStarter.java that can be started from Eclipse as a Java application for easy debugging.
 
 
 Running in OSGi
 -------------------------------------------------------------------------------
 
-The common and server projects are packaged as OSGI bundles so they can be used in and outside of an OSGI container.
-There is typically one spring file that is used for non OSGI deployments. For OSGI deployment Spring OSGI is used. So an 
-additional spring config in META-INF/spring is used to start the bundle in an OSGI environment this context contains all 
-beans that are OSGI specific and imports the non OSGI spring context.
+The common and server projects are packaged as OSGI bundles so they can be used either inside or outside of an OSGI container.
+There is typically one Spring file that is used for non-OSGI deployments. For OSGI deployment Spring OSGI is used, requiring an 
+additional Spring config file in META-INF/Spring.  This file is used to start the bundle in an OSGI environment, contains all 
+beans that are OSGI specific and imports the non-OSGI Spring context.
 
-To create the bundles the maven bundle plugin is used. This plugin by default imports all java packages that are imported in
-java code and exports all packages from the bundle. As some code is only referenced from spring these packages or
-bundles have to be specified in the configuration of the maven bundle plugin. 
+To create the bundles the Maven bundle plugin is used. This plugin by default imports all Java packages that are imported in
+Java code and exports all packages from the bundle. As some code is only referenced from Spring these packages or
+bundles have to be specified in the configuration of the Maven bundle plugin. 
 
-Generally OSGi containers remember their state. So to make sure an example runs like the first time the container is best reset.
-In Talend Integration Factory Container (Karaf) this can be easily done by deleting the data directory.
+Generally OSGi containers remember their state, so you may wish to reset the container before subsequent runs of any example for 
+which you wish to see the same behavior as the first run.  In Talend Integration Factory Container (Karaf) this can be easily
+done by deleting the data directory.
