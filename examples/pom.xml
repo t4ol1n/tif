@@ -18,6 +18,7 @@
         <module>jaxrs-jms-http</module>
         <module>spring-security</module>
         <module>blueprint</module>
+        <module>claimcheck</module>
     </modules>
 
 </project>
