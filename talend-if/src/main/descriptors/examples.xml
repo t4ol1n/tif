@@ -18,8 +18,6 @@
             <directory>${basedir}/../examples</directory>
             <outputDirectory>/examples</outputDirectory>
             <excludes>
-                <!-- Exclude blueprint as it's a work in progress -->
-                <exclude>blueprint/**</exclude>
                 <!-- Exclude maven build target directory -->
                 <exclude>**/target/**</exclude>
                 <!-- Exclude Eclipse files and directories -->
