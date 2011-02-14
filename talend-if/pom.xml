@@ -329,7 +329,6 @@
                             <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
                     </execution>
-                    <!--
                     <execution>
                         <id>examples</id>
                         <phase>package</phase>
@@ -344,7 +343,6 @@
                             <tarLongFileMode>gnu</tarLongFileMode>
                         </configuration>
                     </execution>
-                    -->
                 </executions>
             </plugin>
         </plugins>
