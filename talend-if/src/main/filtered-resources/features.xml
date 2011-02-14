@@ -13,6 +13,7 @@
    <repository>mvn:com.talend.if.examples.spring-security/spring-security-server/1.0/xml/features</repository>
    <repository>mvn:com.talend.if.examples.jaxws-jms/jaxws-jms-server/1.0/xml/features</repository>
    <repository>mvn:com.talend.if.examples.jaxrs-jms-http/jaxrs-jms-http-server/1.0/xml/features</repository>
+   <repository>mvn:com.talend.if.examples.claimcheck/claimcheck-server/1.0/xml/features</repository>
 
     <feature name="tif-core" version="${project.version}">
         <feature version="${camel.version}">camel</feature>

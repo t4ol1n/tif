@@ -28,8 +28,12 @@
   <!-- Lets connect the Camel ActiveMQ component to the embedded broker.
        See http://camel.apache.org/activemq.html for more information.
   -->
-  <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+  <bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
     <property name="brokerURL" value="vm://mybroker?broker.persistent=false"/>
+  </bean>
+  
+  <bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+    <property name="connectionFactory" ref="connectionFactory"/>
   </bean>
   
   <bean id="randomDelayer" class="org.apache.camel.example.claimcheck.RandomDelayer">
@@ -58,24 +62,24 @@
       <from uri="direct:checkInAndSend"/>
       <bean ref="dataStore" method="checkIn"/>
       <setHeader headerName="MyMessageIndex"><simple>${property.CamelSplitIndex}</simple></setHeader>
-      <to pattern="InOnly" uri="activemq:claimchecks.ordered"/>
+      <to pattern="InOnly" uri="jms:claimchecks.ordered"/>
     </route>
     
     <!--
         Read from the ordered queue in parallel, delay each message by a random time and send to unordered queue 
      -->
     <route>
-      <from uri="activemq:claimchecks.ordered?concurrentConsumers=10"/>
+      <from uri="jms:claimchecks.ordered?concurrentConsumers=10"/>
       <setExchangePattern pattern="InOnly"/>
       <to uri="bean:randomDelayer" />
-      <to pattern="InOnly" uri="activemq:claimchecks.unordered"/>
+      <to pattern="InOnly" uri="jms:claimchecks.unordered"/>
     </route>
 
     <!--
         Claim the mass data again and log the resulting message
      -->      
     <route>
-      <from uri="activemq:claimchecks.unordered"/>
+      <from uri="jms:claimchecks.unordered"/>
       <log message="unordered ${header.MyMessageIndex} ${body}"/>
       <bean ref="dataStore" method="claim"/>
       <log message="claimed ${header.MyMessageIndex} ${body}"/>
