@@ -1,6 +1,12 @@
 ﻿TIF Examples
 ===============================================================================
 
+blueprint
+   Deploying Camel routes using a simple blueprint descriptor
+   
+claimcheck
+   Splitting of a file, moving the mass data over a separate channel and resequecing the parts
+   
 jaxrs-jms-http
    Publishing and using the same jaxrs implmentation with both http and jms
 
@@ -10,9 +16,19 @@ jaxws-jms
 Spring-security
    Securing Camel routes and CXF endpoints using Spring security
 
-blueprint
-   Deploying Camel routes using a simple blueprint descriptor
+Build
+====
 
+> cd examples
+> mvn clean install
+
+Prepare the TIF Container for the examples
+================================
+
+Start karaf
+
+> features:addurl mvn:com.talend.if.examples/tif-examples-features/1.0/xml
+   Add the examples feature to the container. This only needs to be done once for all examples
 
 Getting Help
 ===============================================================================

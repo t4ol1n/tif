@@ -84,7 +84,18 @@
                 <include>LICENSE.txt</include>
                 <!--include>RELEASE*</include-->
             </includes>
-            <lineEnding>unix</lineEnding>
+            <lineEnding>dos</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <!-- Copy over the container README.txt -->
+        <fileSet>
+            <directory>${basedir}</directory>
+            <outputDirectory>/container</outputDirectory>
+            <includes>
+                <include>README.txt</include>
+            </includes>
+            <lineEnding>dos</lineEnding>
             <fileMode>0644</fileMode>
         </fileSet>
 
@@ -96,7 +107,7 @@
         <fileSet>
             <directory>target/classes/etc</directory>
             <outputDirectory>/container/etc/</outputDirectory>
-            <lineEnding>unix</lineEnding>
+            <lineEnding>dos</lineEnding>
             <fileMode>0644</fileMode>
         </fileSet>
 

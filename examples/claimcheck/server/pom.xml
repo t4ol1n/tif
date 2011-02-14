@@ -20,7 +20,6 @@
 
     <build>
         <defaultGoal>install</defaultGoal>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -37,7 +36,7 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Require-Bundle>org.apache.cxf.bundle,org.springframework.beans,org.apache.activemq.activemq-core,jms-spec-common</Require-Bundle>
+                        <Require-Bundle>org.apache.cxf.bundle,org.springframework.beans,org.apache.activemq.activemq-core</Require-Bundle>
                     </instructions>
                 </configuration>
             </plugin>
@@ -56,11 +55,6 @@
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-core</artifactId>
-            <version>${activemq.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-camel</artifactId>
             <version>${activemq.version}</version>
         </dependency>
         <dependency>

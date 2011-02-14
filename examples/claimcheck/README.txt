@@ -69,10 +69,28 @@ Start in jetty
 Start in the OSGI container
 ---------------------
 
-karaf@tif> mvn features:install tif-example-eaipatterns
+karaf@tif> features:install tif-example-claimcheck
 
 
 Process a file
 --------------
 
-Then copy a text file into the in directory and watch the log
+Then copy a text file (e.g. the ReadMe.txt) into the in directory and watch the log
+
+Each line of the file will be output for each stage in the route. It looks like this:
+route4 INFO  claimed 3 Our business case for the example
+- "claimed means that the mass data has been claimed again
+- "3" is the part / line number
+- "Our business case ... " is the content of the body of the message
+
+Unordered:
+   The lines starting with unordered show the state after splitting and check in of the mass data. The line numbers will be scrambled and the real content 
+   is replaced by the "claim tag" (a uuid to later retrieve the data)
+
+Claimed:
+   The message content has been retrieved again but the lines are still scrambled
+   
+Ordered:
+   The messages are now also ordered. So the original content should be readable in the log
+
+
