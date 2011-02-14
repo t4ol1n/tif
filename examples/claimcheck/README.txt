@@ -69,7 +69,7 @@ Start in jetty
 Start in the OSGI container
 ---------------------
 
-karaf@tif> mvn features:install tif-example-eaipatterns
+karaf@tif> features:install tif-example-claimcheck
 
 
 Process a file

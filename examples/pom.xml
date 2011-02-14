@@ -19,6 +19,7 @@
         <module>spring-security</module>
         <module>blueprint</module>
         <module>claimcheck</module>
+        <module>features</module>
     </modules>
 
 </project>

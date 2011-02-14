@@ -31,10 +31,6 @@ ways to get a JMS broker running:
   * From the command line, run:
      mvn -Pjms.broker
 
-  * From within the OSGi container command line, run:
-     features:install tif-messaging (needs to be done only once)
-     activemq:create-broker
-
   That will create a new broker broker with the defaults and
   will then start it.
 

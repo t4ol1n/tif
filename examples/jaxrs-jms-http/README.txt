@@ -30,13 +30,6 @@ ways to get a JMS broker running:
 In separate command windows/shells:
 > mvn -Pjms.broker
 
-2.2) From within the Talend Service Factory OSGi container:
-From the OSGi command line, run:
-karaf@tif> features:install tif-messaging
-karaf@tif> activemq:create-broker 
-That will create a new broker broker with the defaults and will then start it.
-
-
 3) Starting the Service
 -------------------------------------------------------------------------------
 
@@ -47,9 +40,8 @@ That will create a new broker broker with the defaults and will then start it.
 > cd war ; mvn jetty:run
 
 3.3) From within the OSGi container
-From the OSGi command line, run:
-karaf@tif> features:install tif-example-jaxws-jms
-"list | grep TIF" should now show the bundle of the example the server bundle should be in status started
+karaf@tif> features:install tif-example-jaxrs-jms-http
+   "list | grep TIF" should now show the bundle of the example the server bundle should be in status started
 
 
 4) Running the Client

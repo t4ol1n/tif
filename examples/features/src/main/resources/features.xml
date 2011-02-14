@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+
+    <!--
+        Copyright (C) 2010 Talend Inc. - www.talend.com
+    -->
+
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
+    
+    <feature name='tif-example-claimcheck' version='${pom.version}'>
+        <feature version="${camel.version}">camel-jms</feature>
+        <feature version="${activemq.version}">activemq</feature>
+        
+        <bundle>mvn:com.talend.if.examples.claimcheck/claimcheck-server/${pom.version}</bundle>
+    </feature>
+    
+    <feature name='tif-example-jaxrs-jms-http' version='${pom.version}'>
+        <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-jms</feature>
+        <feature version="${camel.version}">camel-servlet</feature>
+        <feature version="${camel.version}">camel-jetty</feature>
+        <feature version="${camel.version}">camel-jaxb</feature>
+        <feature version="${activemq.version}">activemq</feature>
+        <feature>http</feature>
+        
+        <bundle>mvn:com.talend.if.examples.jaxrs-jms-http/jaxrs-jms-http-common/${pom.version}</bundle>
+        <bundle>mvn:com.talend.if.examples.jaxrs-jms-http/jaxrs-jms-http-server/${pom.version}</bundle>
+    </feature>
+    
+    <feature name='tif-example-jaxws-jms' version='${pom.version}'>
+        <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-jms</feature>
+        <feature version="${activemq.version}">activemq</feature>
+        <feature>http</feature>
+        
+        <bundle>mvn:com.talend.if.examples.jaxws-jms/jaxws-jms-server/${pom.version}</bundle>
+    </feature>
+    
+    <feature name='tif-example-spring-security' version='${pom.version}'>
+        <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-spring-security</feature>
+        <feature version="${camel.version}">camel-servlet</feature>
+        <feature>http</feature>
+        
+        <bundle>mvn:org.springframework.security/spring-security-web/3.0.5.RELEASE</bundle>
+        <bundle>mvn:org.springframework/spring-web/3.0.5.RELEASE</bundle>
+        
+        <bundle>mvn:com.talend.if.examples.spring-security/spring-security-common/${pom.version}</bundle>
+        <bundle>mvn:com.talend.if.examples.spring-security/spring-security-server/${pom.version}</bundle>
+    </feature>
+
+</features>
