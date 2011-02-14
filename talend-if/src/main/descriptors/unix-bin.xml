@@ -90,6 +90,17 @@
             <fileMode>0644</fileMode>
         </fileSet>
 
+        <!-- Copy over the container README.txt -->
+        <fileSet>
+            <directory>${basedir}</directory>
+            <outputDirectory>/container</outputDirectory>
+            <includes>
+                <include>README.txt</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
         <fileSet>
             <directory>src/main/distribution/text</directory>
             <outputDirectory>/</outputDirectory>

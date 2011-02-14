@@ -1,13 +1,51 @@
 Talend Integration Factory Container - powered by Karaf
 ===============================================================================
 
-The Talend Integration Factory Container is a convenient distribution of Karaf that packs together current versions of
-Equinox, Camel and CXF. The container already contains everything needed to run CXF services and Camel integrations.
+The Talend Integration Factory Container (aka TIF Container) is a lightweight OSGi container powered by Apache Karaf.
+It packs current versions of Equinox, Camel and CXF. The Container already container everything needed to run Camel
+integrations and routes and CXF services.
 Still it is very compatible to the pure Karaf distribution.
 
+Starting TIF Container
+======================
+Go into the container bin directory:
+
+Unix:
+    cd container/bin
+Windows:
+    cd container\bin
+
+Use the tif script to launch the container:
+
+Unix:
+    ./tif
+Windows:
+    tif.bat
+
+tif startup script will launch the container and put into the TIF Container shell environment (the TIF console).
+
+You can also start TIF Container in other modes:
+
+* you can start TIF Container without the console:
+Unix:
+    ./tif server
+Windows:
+    tif.bat server
+
+* you can start TIF Container in background:
+Unix:
+    ./start
+Windows:
+    start.bat
+
+* you can connect to running TIF Container using the client:
+Unix:
+    ./client
+Windows:
+    client.bat
 
 How to set up a pure Karaf to also run the examples
-===============================================================================
+====================================================
 
 1) Load the Karaf Version 2.1.3
 2) Replace the etc/jre.properties with the one from the TIF container
