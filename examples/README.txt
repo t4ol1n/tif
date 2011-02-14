@@ -1,6 +1,12 @@
 ﻿TIF Examples
 ===============================================================================
 
+blueprint
+   Deploying Camel routes using a simple blueprint descriptor
+   
+claimcheck
+   Splitting of a file, moving the mass data over a separate channel and resequecing the parts
+   
 jaxrs-jms-http
    Publishing and using the same jaxrs implmentation with both http and jms
 
@@ -9,9 +15,6 @@ jaxws-jms
 
 Spring-security
    Securing Camel routes and CXF endpoints using Spring security
-
-blueprint
-   Deploying Camel routes using a simple blueprint descriptor
 
 
 Getting Help

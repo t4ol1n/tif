@@ -2,66 +2,70 @@ Talend Integration Factory Container - powered by Karaf
 ===============================================================================
 
 The Talend Integration Factory Container (aka TIF Container) is a lightweight OSGi container powered by Apache Karaf.
-It packs current versions of Equinox, Camel and CXF. The Container already container everything needed to run Camel
-integrations and routes and CXF services.
-Still it is very compatible to the pure Karaf distribution.
+It packs current versions of Equinox, Camel and CXF. The Container already contains everything needed to run Camel
+routes and CXF services. Still it is very compatible to the pure Karaf distribution.
+
 
 Starting TIF Container
 ======================
-Go into the container bin directory:
 
-Unix:
-    cd container/bin
-Windows:
-    cd container\bin
+The start scripts are in the container/bin directory. If you loaded the .zip version you will see windows startes, for the .tar.gz version you will
+see unix starters.
 
-Use the tif script to launch the container:
+Scripts:
 
-Unix:
-    ./tif
-Windows:
-    tif.bat
-
-tif startup script will launch the container and put into the TIF Container shell environment (the TIF console).
-
-You can also start TIF Container in other modes:
-
-* you can start TIF Container without the console:
-Unix:
-    ./tif server
-Windows:
-    tif.bat server
-
-* you can start TIF Container in background:
-Unix:
-    ./start
-Windows:
-    start.bat
-
-* you can connect to running TIF Container using the client:
-Unix:
-    ./client
-Windows:
-    client.bat
-
-How to set up a pure Karaf to also run the examples
-====================================================
-
-1) Load the Karaf Version 2.1.3
-2) Replace the etc/jre.properties with the one from the TIF container
-3) Start karaf and type the following:
-
-karaf@tif> features:addUrl mvn:org.apache.karaf/apache-karaf/${karaf.version}/xml/features
-karaf@tif> features:addUrl file:${basedir}/target/classes/activemq-features.xml
-karaf@tif> features:addUrl mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features
-karaf@tif> features:addUrl mvn:com.talend.if/talend-if/2.6.0.0-SNAPSHOT/xml/features
-
-Now you are ready to use the examples like described in each example Readme. 
-
-The main difference is that every jar that is needed will be loaded online on demand. So make sure to use the 
-Talend Integration Factory container to avoid this.
+ - tif : Launch the container in foreground with the TIF (Karaf) console
+ - karaf : same as tif
+ - server:  Start TIF Container in background:
+ - client <command> : Connect to running Container and start shell command <command>
+ 
+ At this point the examples can be run. Please refer to the README in each example for further instructions
 
 
-Design Notes / Common Patterns in the examples
-===============================================================================
+Short introduction to TIF and Karaf
+===========================
+
+Make sure to read the Karaf getting started:
+http://karaf.apache.org/manual/2.1.99-SNAPSHOT/quick-start.html
+
+> list
+
+   Shows the list of installed bundles. -s will show the bundle symbolic name instead of the description
+   
+> start <id>
+
+   Start the bundle with the given id
+
+> stop <id>
+
+   Stop the bundle with the given id
+
+> features:listurl
+
+   Shows the features.xml files that are available. These define which features can be installed
+
+> features:install <feature>
+
+   Install a given feature. A feature contains bundles, config and references to other features. They are an easy way to do complex 
+   installations with one command
+
+> ls
+
+   Show the available OSGi services
+   
+
+Hints
+====
+
+Use <tab> completion It is available in most commands.
+
+Use "| grep -i <searchstring>" to filter interessting information from long lists.
+
+TIF Container (Karaf) is very silent. Make sure to have a tail -f on the log running to not miss exceptions and warnings.
+
+The container will keep it's state after restarts. So to really reset the container delete the data directory.
+
+Interested how a features.xml at mvn:org.apache.karaf/apache-karaf/2.1.3/xml/features looks? Try "cat mvn:org.apache.karaf/apache-karaf/2.1.3/xml/features"
+
+Use the the environment variable KARAF_DEBUG=true to prepare the container for a remote debugging session. Connect to it using the eclipse "Remote Java Application" starter.
 
