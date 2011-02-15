@@ -9,7 +9,7 @@ routes and CXF services. Still it is very compatible to the pure Karaf distribut
 Starting TIF Container
 ======================
 
-The start scripts are in the container/bin directory. If you loaded the .zip version you will see windows startes, for the .tar.gz version you will
+The start scripts are in the container/bin directory. If you loaded the .zip version you will see windows starters, for the .tar.gz version you will
 see unix starters.
 
 Scripts:

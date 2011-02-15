@@ -17,10 +17,10 @@ an impressive set of available components for all commonly used protocols
 like http, https, ftp, xmpp, rss and many more. A large number of data
 formats like EDI, JSON, CSV, HL7 and languages like JS, Python, 
 Scala, are supported out of the box. Its extensible architecture
-allows developers to easily add support to proprietary protocols
+allows developers to easily add support for proprietary protocols
 and data formats.
 
-The Talend Integration Factory distribution supplements the Apache Camel 
+The Talend Integration Factory distribution supplements Apache Camel 
 with support for OSGi containers, support for integrating Talend jobs on 
 Camel routes and a number of advanced examples. The OSGi container uses 
 Apache Karaf. It's a lightweight container providing advanced features such
