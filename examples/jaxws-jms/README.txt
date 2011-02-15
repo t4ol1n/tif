@@ -25,8 +25,7 @@ Using either UNIX or Windows:
 2) Running the JMS Broker
 -------------------------------------------------------------------------------
 
-The sample requires a JMS broker to be running.  There are two
-ways to get a JMS broker running:
+The sample requires a JMS broker to be running:
 
   * From the command line, run:
      mvn -Pjms.broker

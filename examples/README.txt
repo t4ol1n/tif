@@ -17,15 +17,20 @@ Spring-security
    Securing Camel routes and CXF endpoints using Spring security
 
 Build
-====
+===============================================================================
 
 > cd examples
 > mvn clean install
 
 Prepare the TIF Container for the examples
-================================
+===============================================================================
 
-Start karaf
+Start TIF. From the TIF root directory:
+
+> cd container
+> bin/tif
+
+In the TIF shell:
 
 > features:addurl mvn:com.talend.if.examples/tif-examples-features/1.0/xml
    Add the examples feature to the container. This only needs to be done once for all examples
