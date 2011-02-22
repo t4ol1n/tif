@@ -9,8 +9,7 @@ routes and CXF services. Still it is very compatible to the pure Karaf distribut
 Starting TIF Container
 ======================
 
-The start scripts are in the container/bin directory. If you loaded the .zip version you will see windows starters, for the .tar.gz version you will
-see unix starters.
+The start scripts are in the container/bin directory. If you loaded the .zip version you will see Windows starters, for the .tar.gz version you will see Linux/Unix starters.
 
 Scripts:
 
@@ -59,11 +58,11 @@ Hints
 
 Use <tab> completion It is available in most commands.
 
-Use "| grep -i <searchstring>" to filter interessting information from long lists.
+Use "| grep -i <searchstring>" to filter interesting information from long lists.
 
 TIF Container (Karaf) is very silent. Make sure to have a tail -f on the log running to not miss exceptions and warnings.
 
-The container will keep it's state after restarts. So to really reset the container delete the data directory.
+The container will keep its state after restarts. So to really reset the container delete the data directory.
 
 Interested how a features.xml at mvn:org.apache.karaf/apache-karaf/2.1.3/xml/features looks? Try "cat mvn:org.apache.karaf/apache-karaf/2.1.3/xml/features"
 
