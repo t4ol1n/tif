@@ -11,7 +11,7 @@ Starting TIF Container
 
 The start scripts are in the container/bin directory. If you loaded the .zip version you will see Windows starters, for the .tar.gz version you will see Linux/Unix starters.
 
-Scripts:
+Scripts (use .bat extension for Windows):
 
  - tif : Launch the container in foreground with the TIF (Karaf) console
  - karaf : same as tif
@@ -56,7 +56,7 @@ http://karaf.apache.org/manual/2.1.99-SNAPSHOT/quick-start.html
 Hints
 ====
 
-Use <tab> completion It is available in most commands.
+Use <tab> for quick entry completion, it is available for most commands.
 
 Use "| grep -i <searchstring>" to filter interesting information from long lists.
 
@@ -66,5 +66,5 @@ The container will keep its state after restarts. So to really reset the contain
 
 Interested how a features.xml at mvn:org.apache.karaf/apache-karaf/2.1.3/xml/features looks? Try "cat mvn:org.apache.karaf/apache-karaf/2.1.3/xml/features"
 
-Use the the environment variable KARAF_DEBUG=true to prepare the container for a remote debugging session. Connect to it using the eclipse "Remote Java Application" starter.
+Use the environment variable KARAF_DEBUG=true to prepare the container for a remote debugging session. Connect to it using the Eclipse "Remote Java Application" starter.
 
