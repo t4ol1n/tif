@@ -55,7 +55,7 @@
     <properties>
         <activemq.version>5.4.2</activemq.version>
         <camel.version>2.6.0</camel.version>
-        <karaf.version>2.1.3</karaf.version>
+        <karaf.version>2.1.4</karaf.version>
     </properties>
 
     <repositories>
