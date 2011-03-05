@@ -55,7 +55,7 @@
     <properties>
         <activemq.version>5.4.2</activemq.version>
         <camel.version>2.6.0</camel.version>
-        <karaf.version>2.1.4</karaf.version>
+        <karaf.version>2.2.0</karaf.version>
     </properties>
 
     <repositories>
@@ -116,8 +116,15 @@
                 <type>zip</type>
             </dependency>
             <dependency>
-                <groupId>org.apache.karaf</groupId>
-                <artifactId>apache-karaf</artifactId>
+                <groupId>org.apache.karaf.assemblies.features</groupId>
+                <artifactId>standard</artifactId>
+                <version>${karaf.version}</version>
+                <type>xml</type>
+                <classifier>features</classifier>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf.assemblies.features</groupId>
+                <artifactId>enterprise</artifactId>
                 <version>${karaf.version}</version>
                 <type>xml</type>
                 <classifier>features</classifier>

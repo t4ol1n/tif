@@ -32,11 +32,17 @@
             <type>tar.gz</type>
         </dependency>
         <dependency>
-            <groupId>org.apache.karaf</groupId>
-            <artifactId>apache-karaf</artifactId>
+            <groupId>org.apache.karaf.assemblies.features</groupId>
+            <artifactId>standard</artifactId>
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.assemblies.features</groupId>
+            <artifactId>enterprise</artifactId>
+            <type>xml</type>
+            <classifier>features</classifier>
+         </dependency>
 
         <!-- Apache Camel -->
         <dependency>
@@ -90,9 +96,10 @@
                         </goals>
                         <configuration>
                             <descriptors>
-                                <descriptor>mvn:org.apache.karaf/apache-karaf/${karaf.version}/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.karaf.assemblies.features/standard/${karaf.version}/xml/features</descriptor>
+                                <descriptor>mvn:org.apache.karaf.assemblies.features/enterprise/${karaf.version}/xml/features</descriptor>
                                 <descriptor>file:${basedir}/target/classes/activemq-features.xml</descriptor>
-                                <descriptor>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</descriptor>
+                                <descriptor>file:${basedir}/target/classes/camel-features.xml</descriptor>
                                 <descriptor>file:${basedir}/target/classes/features.xml</descriptor>
                             </descriptors>
                             <features>
