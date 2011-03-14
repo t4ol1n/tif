@@ -8,7 +8,7 @@ Enterprise Integration Patterns to make message based system
 integration simpler yet powerful and scalable. 
 
 The Apache Camel uses a lightweight, component based architecture 
-which allows a great flexibility in deployment scenarios: as stand-alone
+which allows great flexibility in deployment scenarios: as stand-alone
 JVM applications or embedded in a servlet container such as Tomcat,
 or within a JEE server, or in an OSGi container such as Equinox.  
 
@@ -25,7 +25,7 @@ with support for OSGi containers, support for integrating Talend jobs on
 Camel routes and a number of advanced examples. The OSGi container uses 
 Apache Karaf. It's a lightweight container providing advanced features such
 as provisioning, hot deployment, logger system, dynmamic configuration,
-complete shell environment, etc.  It's profesional and production ready 
+complete shell environment, etc.  It's a professional and production ready 
 kernel for the Talend Integration Factory.
 
 
@@ -42,7 +42,7 @@ Apache Camel
 
 This package contains a complete version of Apache Camel, the industry 
 leading open source integration framework.  It also includes value
-added components such as OSGi container and several new examples.
+added components such as an OSGi container and several new examples.
 For more information about Apache Camel see http://camel.apache.org/ .  
 
 
@@ -75,7 +75,7 @@ You can find more information about Apache Camel at http://camel.apache.org/
 
 Please submit CAMEL bug reports with JIRA at https://issues.apache.org/jira/browse/CAMEL
 
-Please submit TIF bug reports with JIRA at http://www.talendforge.org
+Please submit TIF bug reports with JIRA at https://jira.sopera.de/browse/IF
 
 Examples are documented individually and include instructions for building
 and running each example with just a few command lines.  See below for obtaining 
@@ -86,7 +86,7 @@ Examples
 ======== 
 
 Talend Integration Factory CE provides several new examples in a separate download
-available from http://www.talend.com/resources/documentation.php#IF .  The 
+available at http://www.talend.com/resources/documentation.php#IF .  The 
 example applications and tutorials demonstrate functionality and advanced 
 features of Talend Integration Factory CE.  The examples demonstrate how to use 
 different functionality including:
