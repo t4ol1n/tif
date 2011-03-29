@@ -10,8 +10,8 @@ import java.util.List;
 import org.apache.camel.Exchange;
 import org.apache.camel.impl.DefaultProducer;
 import org.apache.camel.util.ObjectHelper;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>
@@ -20,7 +20,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class TalendProducer extends DefaultProducer {
 
-    private static final transient Log LOG = LogFactory.getLog(TalendProducer.class);
+    private static final transient Logger LOG = LoggerFactory.getLogger(TalendProducer.class);
     private static final String[] EMPTY_STRING_ARRAY = {};
     
     public TalendProducer(TalendEndpoint endpoint) {

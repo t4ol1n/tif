@@ -17,8 +17,8 @@
 
     <properties>
         <activemq.version>5.4.2</activemq.version>
-        <cxf.version>2.3.2</cxf.version>
-        <camel.version>2.6.0</camel.version>
+        <cxf.version>2.3.3</cxf.version>
+        <camel.version>2.7.0</camel.version>
         <spring.version>3.0.5.RELEASE</spring.version>
         <jetty.version>7.2.2.v20101205</jetty.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

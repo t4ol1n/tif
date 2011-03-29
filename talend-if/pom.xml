@@ -10,7 +10,7 @@
     <parent>
         <groupId>com.talend.if</groupId>
         <artifactId>tif-parent</artifactId>
-        <version>2.6.0.0</version>
+        <version>2.7-SNAPSHOT</version>
     </parent>
 
     <groupId>com.talend.if.assembly</groupId>
