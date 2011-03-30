@@ -78,7 +78,7 @@ Running standalone
 -------------------------------------------------------------------------------
 
 To run the standalone examples mvn exec:java is used. If there is only one Starter class then this command will be configured 
-to activate that clas in the Maven pom file so no extra parameters will be needed. If there are multiple starter classes then 
+to activate that class in the Maven pom file so no extra parameters will be needed. If there are multiple starter classes then 
 the class you would like to run will have to be specified using mvn exec:java -Dexec.mainClass=<fully qualified name of the starter class>.
 The starter classes typically load a Spring Context. The server starters start directly from the Spring context. The client
 starters retrieve the client from the context and start it.

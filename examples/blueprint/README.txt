@@ -2,18 +2,18 @@ Blueprint
 =========
 The camel-blueprint component allows you to deploy Camel routes as an OSGi bundle in the TIF container.
 
-The Camel DS is embedded in a blueprint context.
+The Camel DS is embedded in a blueprint (http://camel.apache.org/using-osgi-blueprint-with-camel.html) context.
 
 Simple
 ------
 The simple.xml is a blueprint definition allowing you to define a route with a timer.
-Every 5 seconds, the time creates an event and use a contant body string with just "Hello World".
-This string is send to a stream endpoint which displays the "Hello World" string into the TIF console.
+Every 5 seconds, the timer creates an event and uses a constant "Hello World" body string.
+This string is sent to a stream endpoint which displays the string into the TIF console.
 
 Recipient List
 --------------
-The recipientlist.xml is a blueprint definition is quite the same as the simple one.
-But, in addition of the stream endpoint, the message is send to a file endpoint too.
+The recipientlist.xml is a blueprint definition quite similar to the simple one.
+But, in addition to the stream endpoint, the message is sent to a file endpoint too.
 
 Usage
 ===============================================================================
@@ -29,10 +29,15 @@ Install the required features
 > features:install camel-blueprint
 > features:install camel-stream
 
-Simply drop the src/main/resources/simple.xml or src/main/resources/recipientlist.xml in the container/deploy directory.
-
-You should be able to see the OSGi for your Camel blueprint using
+You should be able to see the OSGi bundles for your Camel blueprint using
 
 > osgi:list
 
-Every 5 seconds, you will see the "Hello World" message in the TIF console.
+Next, simply drop the src/main/resources/simple.xml or src/main/resources/recipientlist.xml 
+in the container/deploy directory.
+
+Every 5 seconds, you will see the "Hello World" message in the TIF console.  If you used
+recipientlist.xml, you'll also see files created in a new result folder located under the 
+container directory.
+
+
