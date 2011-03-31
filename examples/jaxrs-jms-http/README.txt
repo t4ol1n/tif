@@ -55,3 +55,4 @@ From the command line:
 ---------------------------------------
 To remove the code generated from the WSDL file and the .class
 files, run "mvn clean".
+

@@ -1,14 +1,14 @@
 Example for publishing CXF services using Camel JMS
 ===============================================================================
 
-This Example shows how to publish and call a CXF service using SOAP/JMS. While this can also be done
-using pure CXF the example shows how to do this using camel as the transport in CXF and a camel
-route that does the transport. 
+This example shows how to publish and call a CXF service using SOAP/JMS. While this can also be done
+using pure CXF the example shows how to do this using Camel as a CXF transport with a Camel
+route defining the transport. 
 
-The Advantage over a pure CXF aproach is that you can easily do camel transformations and routings using
-camel routes. Camel also offers other CXF integrations. The Camel transport for CXF was chosen here as
-it offers the easiest integration for an existing CXF endpoint as you only switch the transport and can
-leave the rest of the CXF configuration as is.
+The advantage of this method over a pure CXF approach is that you can easily do Camel transformations 
+and routings using Camel routes. Camel also offers other CXF integrations. The Camel transport for 
+CXF was chosen here as it offers the easiest integration for an existing CXF endpoint as you only need
+to switch the transport and can leave the rest of the CXF configuration as-is.
 
 
 Usage
@@ -55,4 +55,4 @@ The sample requires a JMS broker to be running:
 -------------------------------------------------------------------------------
   * To remove the code generated from the WSDL file and the .class files, run:
      mvn clean
-     
+

@@ -2,18 +2,18 @@ Blueprint
 =========
 The camel-blueprint component allows you to deploy Camel routes as an OSGi bundle in the TIF container.
 
-The Camel DS is embedded in a blueprint (http://camel.apache.org/using-osgi-blueprint-with-camel.html) context.
+The Camel DSL is embedded in a blueprint (http://camel.apache.org/using-osgi-blueprint-with-camel.html) context.
 
 Simple
 ------
 The simple.xml is a blueprint definition allowing you to define a route with a timer.
 Every 5 seconds, the timer creates an event and uses a constant "Hello World" body string.
-This string is sent to a stream endpoint which displays the string into the TIF console.
+This string is sent to a stream endpoint which displays the string in the TIF console.
 
 Recipient List
 --------------
 The recipientlist.xml is a blueprint definition quite similar to the simple one.
-But, in addition to the stream endpoint, the message is sent to a file endpoint too.
+But messages are sent to both a file and a stream endpoint.
 
 Usage
 ===============================================================================
