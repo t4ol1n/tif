@@ -66,7 +66,6 @@
     <feature name="tif-db-connectivity" version="${project.version}">
         <feature version="${camel.version}">camel-ibatis</feature>
         <feature version="${camel.version}">camel-jdbc</feature>
-        <feature version="${camel.version}">camel-jdbc-aggregator</feature>
         <feature version="${camel.version}">camel-josql</feature>
         <feature version="${camel.version}">camel-jpa</feature>
         <feature version="${camel.version}">camel-sql</feature>

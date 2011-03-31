@@ -156,7 +156,6 @@
                                 <feature>camel-jing</feature>
                                 <feature>camel-jibx</feature>
                                 <feature>camel-jdbc</feature>
-                                <feature>camel-jdbc-aggregator</feature>
                                 <feature>camel-josql</feature>
                                 <feature>camel-jpa</feature>
                                 <feature>camel-jxpath</feature>

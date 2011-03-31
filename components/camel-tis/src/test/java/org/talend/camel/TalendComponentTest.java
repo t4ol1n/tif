@@ -3,8 +3,6 @@
  */
 package org.talend.camel;
 
-import java.io.File;
-
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
