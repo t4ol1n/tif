@@ -9,23 +9,23 @@
     <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
     <repository>mvn:org.apache.activemq/activemq-karaf/${activemq.version}/xml/features</repository>
 
-    <feature name="tif-core" version="${project.version}">
+    <feature name="tif-core" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel</feature>
         <feature version="${camel.version}">camel-blueprint</feature>
         <feature version="${camel.version}">camel-cxf</feature>
         <feature version="${camel.version}">camel-jms</feature>
     </feature>
-    <feature name="tif-test" version="${project.version}">
+    <feature name="tif-test" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-test</feature>
     </feature>
-    <feature name="tif-messaging" version="${project.version}">
+    <feature name="tif-messaging" version="${project.version}" resolver='(obr)'>
         <feature version="${activemq.version}">activemq</feature>
         <feature version="${activemq.version}">activemq-spring</feature>
         <feature version="${activemq.version}">activemq-blueprint</feature>
         <feature version="${camel.version}">camel-jms</feature>
         <feature version="${camel.version}">camel-amqp</feature>
     </feature>
-    <feature name="tif-ws" version="${project.version}">
+    <feature name="tif-ws" version="${project.version}" resolver='(obr)'>
         <feature>jetty7</feature>
         <feature version="${camel.version}">camel-cxf</feature>
         <feature version="${camel.version}">camel-http</feature>
@@ -34,7 +34,7 @@
         <feature version="${camel.version}">camel-servlet</feature>
         <feature version="${camel.version}">camel-soap</feature>
     </feature>
-    <feature name="tif-communication" version="${project.version}">
+    <feature name="tif-communication" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-mina</feature>
         <feature version="${camel.version}">camel-atom</feature>
         <feature version="${camel.version}">camel-ftp</feature>
@@ -47,11 +47,11 @@
         <feature version="${camel.version}">camel-xmpp</feature>
         <feature version="${camel.version}">camel-sip</feature>
     </feature>
-    <feature name="tif-logging" version="${project.version}">
+    <feature name="tif-logging" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-paxlogging</feature>
         <feature version="${camel.version}">camel-syslog</feature>
     </feature>
-    <feature name="tif-languages" version="${project.version}">
+    <feature name="tif-languages" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-groovy</feature>
         <feature version="${camel.version}">camel-saxon</feature>
         <feature version="${camel.version}">camel-scala</feature>
@@ -59,18 +59,18 @@
         <feature version="${camel.version}">camel-string-template</feature>
         <feature version="${camel.version}">camel-velocity</feature>
     </feature>
-    <feature name="tif-monitoring" version="${project.version}">
+    <feature name="tif-monitoring" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-jmx</feature>
         <feature version="${camel.version}">camel-nagios</feature>
     </feature>
-    <feature name="tif-db-connectivity" version="${project.version}">
+    <feature name="tif-db-connectivity" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-ibatis</feature>
         <feature version="${camel.version}">camel-jdbc</feature>
         <feature version="${camel.version}">camel-josql</feature>
         <feature version="${camel.version}">camel-jpa</feature>
         <feature version="${camel.version}">camel-sql</feature>
     </feature>
-    <feature name="tif-databinding" version="${project.version}">
+    <feature name="tif-databinding" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-castor</feature>
         <feature version="${camel.version}">camel-bindy</feature>
         <feature version="${camel.version}">camel-csv</feature>
@@ -79,17 +79,17 @@
         <feature version="${camel.version}">camel-jibx</feature>
         <feature version="${camel.version}">camel-xmlbeans</feature>
     </feature>
-    <feature name="tif-encryption" version="${project.version}">
+    <feature name="tif-encryption" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-crypto</feature>
         <feature version="${camel.version}">camel-jasypt</feature>
     </feature>
-    <feature name="tif-ldap" version="${project.version}">
+    <feature name="tif-ldap" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-ldap</feature>
     </feature>
-    <feature name="tif-scheduler" version="${project.version}">
+    <feature name="tif-scheduler" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-quartz</feature>
     </feature>
-    <feature name="tif-system" version="${project.version}">
+    <feature name="tif-system" version="${project.version}" resolver='(obr)'>
         <feature version="${camel.version}">camel-syslog</feature>
         <feature version="${camel.version}">camel-exec</feature>
     </feature>
