@@ -40,7 +40,7 @@
         <dependency>
             <groupId>com.talend.if.examples.claimcheck</groupId>
             <artifactId>claimcheck-server</artifactId>
-            <version>1.0</version>
+            <version>${project.version}</version>
         </dependency>
         
         <dependency>
@@ -53,12 +53,12 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>7.2.2.v20101205</version>
+            <version>${jetty.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-webapp</artifactId>
-            <version>7.2.2.v20101205</version>
+            <version>${jetty.version}</version>
         </dependency>
 
     </dependencies>
