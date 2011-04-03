@@ -20,7 +20,6 @@
           http://cxf.apache.org/jaxrs
           http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <import resource="classpath:/common-security.xml"/>
     <import resource="classpath:/META-INF/cxf/cxf.xml"/>
     <import resource="classpath:/META-INF/cxf/cxf-extension-jaxrs-binding.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-extension-jaxws.xml" />
@@ -28,6 +27,17 @@
     <import resource="classpath:/META-INF/cxf/camel/cxf-extension-camel.xml"/>
 
     <global-method-security jsr250-annotations="enabled" xmlns="http://www.springframework.org/schema/security"/>
+
+    <!--  set up the user configuration here -->
+    <spring-security:authentication-manager alias="authenticationManager">
+        <spring-security:authentication-provider user-service-ref="userDetailsService"/>
+    </spring-security:authentication-manager>
+
+    <spring-security:user-service id="userDetailsService">
+        <spring-security:user name="jim" password="jimspassword" authorities="ROLE_USER, ROLE_ADMIN"/>
+        <spring-security:user name="bob" password="bobspassword" authorities="ROLE_USER"/>
+        <spring-security:user name="alex" password="alexspassword" authorities=""/>
+    </spring-security:user-service>
 
     <!--
          JAX-WS configurations

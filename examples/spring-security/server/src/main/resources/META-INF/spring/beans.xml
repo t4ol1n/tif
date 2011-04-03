@@ -38,19 +38,15 @@
         <property name="authenticationEntryPoint" ref="basicAuthEntryPoint"/>
     </bean>
     
-    <bean class="server.osgi.OsgiServletRegisterer">
+    <bean class="org.apache.camel.component.servlet.osgi.OsgiServletRegisterer" init-method="register" destroy-method="unregister">
         <property name="alias" value="/spring-security"/>
         <property name="httpService" ref="httpservice"/>
         <property name="servlet" ref="osgiServlet"/>
         <property name="httpContext" ref="httpContext"/>
+         <property name="servletName" value="CamelServlet"/>
     </bean>
-    
-    <bean id="osgiServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>
 
-   <bean id="servlet" class="org.apache.camel.component.servlet.ServletComponent">
-      <property name = "camelServletService" ref="osgiServlet" />
-   </bean>
+    <bean id="osgiServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet">
+    </bean>
 
-   
-  
 </beans>

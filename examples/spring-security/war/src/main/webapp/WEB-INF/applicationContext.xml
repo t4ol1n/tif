@@ -3,11 +3,8 @@
     Copyright (C) 2010 Talend Inc. - www.talend.com
 -->
 <!--
-  - Application context containing authentication, channel
-  - security and web URI beans.
-  -
-  - Only used by "filter" artifact.
-  -
+  Application context containing additional configuration that only applies to running in the servlet container.
+  Imports the common spring context canel-context.xml  
   -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -15,11 +12,7 @@
                              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
                              http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
-    <import resource="classpath:/common-security.xml"/>
-    <import resource="classpath:META-INF/cxf/cxf.xml"/>
-    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
-    <import resource="classpath:META-INF/cxf/cxf-extension-http.xml"/>
-    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+    <import resource="classpath:/camel-context.xml"/>
 
     <http realm="TIF Spring Security Example" xmlns="http://www.springframework.org/schema/security">
         <intercept-url pattern="/**" access="ROLE_USER"/>

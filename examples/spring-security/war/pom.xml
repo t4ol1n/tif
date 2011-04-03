@@ -43,9 +43,16 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        
+        <dependency>
+        	<groupId>org.slf4j</groupId>
+        	<artifactId>slf4j-log4j12</artifactId>
+        	<version>1.6.1</version>
+        </dependency>
     </dependencies>
 
     <build>
+    	<finalName>spring-security</finalName>
         <plugins>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>

@@ -12,7 +12,7 @@
     <!-- location of spring xml files -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext-security.xml</param-value>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
 
     <!-- the listener that kick-starts Spring -->
@@ -37,16 +37,11 @@
             <param-name>matchOnUriPrefix</param-name>
             <param-value>true</param-value>
         </init-param>
-        <!-- set the camel context application file location here -->
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>/camel-context.xml</param-value>
-        </init-param>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>CamelServlet</servlet-name>
-        <url-pattern>/spring-security/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
