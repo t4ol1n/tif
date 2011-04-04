@@ -32,14 +32,11 @@ In separate command windows/shells:
 
 3) Starting the Service
 -------------------------------------------------------------------------------
-
-3.1) Standalone
-> cd service ; mvn exec:java
      
-3.2) In Jetty
+3.1) In Jetty
 > cd war ; mvn jetty:run
 
-3.3) From within the OSGi container
+3.2) From within the OSGi container
 karaf@tif> features:install tif-example-jaxrs-jms-http
    "list | grep TIF" should now show the bundle of the example the server bundle should be in status started
 
