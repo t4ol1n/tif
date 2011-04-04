@@ -130,20 +130,6 @@
             <lineEnding>unix</lineEnding>
         </file>
         <file>
-            <source>${basedir}/target/classes/camel-features.xml</source>
-            <outputDirectory>/container/system/org/apache/camel/karaf/apache-camel/${camel.version}</outputDirectory>
-            <destName>apache-camel-${camel.version}-features.xml</destName>
-            <fileMode>0644</fileMode>
-            <lineEnding>unix</lineEnding>
-        </file>
-        <file>
-            <source>${basedir}/target/classes/activemq-features.xml</source>
-            <outputDirectory>/container/system/org/apache/activemq/activemq-karaf/${activemq.version}</outputDirectory>
-            <destName>activemq-karaf-${activemq.version}-features.xml</destName>
-            <fileMode>0644</fileMode>
-            <lineEnding>unix</lineEnding>
-        </file>
-        <file>
             <source>${basedir}/target/classes/features.xml</source>
             <outputDirectory>/container/system/com/talend/if/talend-if/${project.version}</outputDirectory>
             <destName>talend-if-${project.version}-features.xml</destName>
@@ -153,6 +139,24 @@
     </files>
 
     <dependencySets>
+        <dependencySet>
+            <outputDirectory>/container/system</outputDirectory>
+            <outputFileNameMapping>org/apache/activemq/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+            <unpack>false</unpack>
+            <scope>runtime</scope>
+            <includes>
+                <include>org.apache.activemq:activemq-karaf:xml:features</include>
+            </includes>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/container/system</outputDirectory>
+            <outputFileNameMapping>org/apache/camel/karaf/${artifact.artifactId}/${artifact.baseVersion}/${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+            <unpack>false</unpack>
+            <scope>runtime</scope>
+            <includes>
+                <include>org.apache.camel.karaf:apache-camel:xml:features</include>
+            </includes>
+        </dependencySet>
         <dependencySet>
             <outputDirectory>/lib</outputDirectory>
             <unpack>false</unpack>
