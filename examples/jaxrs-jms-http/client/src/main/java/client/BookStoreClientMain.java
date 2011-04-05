@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Talend Inc. - www.talend.com
+ * Copyright (C) 2010 - 2011 Talend Inc. - www.talend.com
  */
 package client;
 
@@ -15,7 +15,7 @@ import talend.tif.examples.jaxrsjmshttp.common.BookStore;
  * </p>
  * <p>
  * Shows how to run the book store client using a proxy to the service that calls
- * the service using JMS and HTTP.
+ * the service using both JMS and HTTP.
  * </p>
  */
 public class BookStoreClientMain {
@@ -26,11 +26,12 @@ public class BookStoreClientMain {
         BookStore bookStoreJmsClient = context.getBean("bookStoreJmsClient", BookStore.class);
         client.useBookStore(bookStoreJmsClient);
         
-        // TODO We should get this working with HTTP over camel transport 
-        // "camel://direct:bookStoreHttp"        
         BookStore bookStoreHttp = 
             JAXRSClientFactory.create("http://localhost:9002/bookstore", BookStore.class);
         client.useBookStore(bookStoreHttp);
         context.close();
+
+        // TODO Implement with HTTP over Camel transport using direct component
+        // "camel://direct:bookStoreHttp"        
     }
 }
