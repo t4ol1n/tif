@@ -29,7 +29,7 @@ Claim Check
 ----------- 
 This pattern shows how to improve message throughput and reduce load on your service bus.
 The claim check pattern is one of the Enterprise Integration patterns explained at http://www.eaipatterns.com/StoreInLibrary.html.
-It refers to the baggage check in and claim at airports. The passenger checks in his luggage where it is handled spearately and reclaims is at the destination. 
+It refers to the baggage check in and claim at airports. The passenger checks in his luggage where it is handled separately and reclaims is at the destination. 
 
 Another nice article about the claim check pattern can be found here:
 http://www.ibm.com/developerworks/websphere/library/techarticles/1006_kharlamov/1006_kharlamov.html
