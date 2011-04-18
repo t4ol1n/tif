@@ -84,9 +84,9 @@
       <bean ref="dataStore" method="claim"/>
       <log message="claimed ${header.MyMessageIndex} ${body}"/>
       <resequence>
-        <simple>${header.MyMessageIndex}</simple>
-        <log message="ordered ${header.MyMessageIndex} ${body}"/>
         <batch-config batchSize="300" batchTimeout="5000" />
+        <simple>${header.MyMessageIndex}</simple>
+        <log message="ordered ${header.MyMessageIndex} ${body}"/>        
       </resequence>
     </route>
     
