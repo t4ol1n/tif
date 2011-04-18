@@ -26,7 +26,6 @@ Start the TIF container
 
 Install the required features
 
-> features:install camel-blueprint
 > features:install camel-stream
 
 You should be able to see the OSGi bundles for your Camel blueprint using
