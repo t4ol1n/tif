@@ -55,7 +55,7 @@ http://www.talendforge.org/forum/
 http://www.talend.com/professional-support/support.php
 https://jira.sopera.de/browse/IF
 
-Please use the contact channel that is most apropriate for your problem. General problems that apply 
+Please use the contact channel that is most appropriate for your problem. General problems that apply 
 to the Apache projects are best placed on Apache channels. Talend product specific questions
 should rather be placed on Talend channels.
 
