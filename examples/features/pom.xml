@@ -18,12 +18,16 @@
     <name>TIF :: Examples :: features</name>
     
     <properties>
+        <tif.version>2.7-SNAPSHOT</tif.version>
         <activemq.version>5.5.0</activemq.version>
         <cxf.version>2.3.3</cxf.version>
         <camel.version>2.7.0</camel.version>
+        <karaf.version>2.2.0</karaf.version>
         <spring.version>3.0.5.RELEASE</spring.version>
         <spring-security.version>3.0.5.RELEASE</spring-security.version>
         <jetty.version>7.2.2.v20101205</jetty.version>
+        <slf4j.version>1.5.11</slf4j.version>
+        <features.file>features.xml</features.file>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -35,19 +39,19 @@
             </resource>
         </resources>
         <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <executions>
-             <execution>
-                <id>filter</id>
-                <phase>generate-resources</phase>
-                <goals>
-                  <goal>resources</goal>
-                </goals>
-             </execution>
-          </executions>
-        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>filter</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -69,6 +73,32 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- TODO: find a good solution for supplying the container config.properties -->
+            <!--plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>features-maven-plugin</artifactId>
+                <version>${karaf.version}</version>
+                <configuration>
+                    <file>${project.build.directory}/classes/${features.file}</file>
+                    <karafConfig>${project.build.directory}/classes/config.properties</karafConfig>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-jdk14</artifactId>
+                        <version>${slf4j.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin-->
         </plugins>
     </build>
 
