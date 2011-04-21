@@ -32,7 +32,7 @@ Start TIF. From the TIF root directory:
 
 In the TIF shell:
 
-> features:addurl mvn:com.talend.if.examples/tif-examples-features/1.0/xml
+> features:addurl mvn:com.talend.if.examples/osgi/1.0/xml/features
    Add the examples feature to the container. This only needs to be done once for all examples
 
 Getting Help
