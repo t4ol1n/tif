@@ -38,7 +38,7 @@ The sample requires a JMS broker to be running:
 -------------------------------------------------------------------------------
 
   * From the command line:
-     cd service ; mvn exec:java
+     cd server ; mvn exec:java
 
   * From within the OSGi container command line, run:
       features:install tif-example-jaxws-jms
