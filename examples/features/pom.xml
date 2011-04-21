@@ -13,7 +13,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>tif-examples-features</artifactId>
+    <artifactId>osgi</artifactId>
     <packaging>pom</packaging>
     <name>TIF :: Examples :: features</name>
     
@@ -66,6 +66,7 @@
                             <artifacts>
                                 <artifact>
                                     <file>target/classes/features.xml</file>
+                                    <classifier>features</classifier>
                                     <type>xml</type>
                                 </artifact>
                             </artifacts>
