@@ -4,6 +4,7 @@
 .project
 .ruleset
 .settings/
+.swp
 target/
 velocity.log
 *.i??
