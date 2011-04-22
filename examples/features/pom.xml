@@ -18,7 +18,7 @@
     <name>TIF :: Examples :: features</name>
     
     <properties>
-        <tif.version>2.7-SNAPSHOT</tif.version>
+        <tif.version>2.7.0</tif.version>
         <activemq.version>5.5.0</activemq.version>
         <cxf.version>2.3.3</cxf.version>
         <camel.version>2.7.0</camel.version>

@@ -10,7 +10,7 @@
     <groupId>org.talend.camel</groupId>
     <artifactId>camel-tis</artifactId>
     <packaging>jar</packaging>
-    <version>2.7-SNAPSHOT</version>
+    <version>2.7.0</version>
 
     <name>TIF :: Talend Component</name>
     <url>http://www.talend.org</url>
