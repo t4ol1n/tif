@@ -14,12 +14,13 @@ to switch the transport and can leave the rest of the CXF configuration as-is.
 Usage
 ===============================================================================
 
+Note: Please read the parent README.txt first for general instructions regarding running examples.
+
 1) Building the Demo
 -------------------------------------------------------------------------------
   
-Using either UNIX or Windows:
-
-    mvn install
+Using either UNIX or Windows, from the command line, run:
+> mvn install
 
 
 2) Running the JMS Broker
@@ -28,20 +29,21 @@ Using either UNIX or Windows:
 The sample requires a JMS broker to be running:
 
   * From the command line, run:
-     mvn -Pjms.broker
+> mvn -Pjms.broker
 
-  That will create a new broker broker with the defaults and
-  will then start it.
+  That will create a new broker (using the default configuration) and will start it.
 
 
 3) Starting the Service
 -------------------------------------------------------------------------------
 
-  * From the command line:
-     cd server ; mvn exec:java
+3.1) In Jetty
+  * From the command line, run:
+> cd server ; mvn exec:java
 
-  * From within the OSGi container command line, run:
-      features:install tif-example-jaxws-jms
+3.2) From within the TIF OSGi container command line, run:
+karaf@tif> features:install tif-example-jaxws-jms
+     "list | grep TIF" should now show the bundle of the example the server bundle should be in an 'Active' State
 
 
 4) Running the Client
@@ -53,6 +55,7 @@ The sample requires a JMS broker to be running:
 
 5) Cleaning up
 -------------------------------------------------------------------------------
+  * Press ^C in the server and broker windows to stop the running processes
   * To remove the code generated from the WSDL file and the .class files, run:
-     mvn clean
+> mvn clean
 

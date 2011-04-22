@@ -12,23 +12,25 @@ interface.
 Usage
 ===============================================================================
 
+Note: Please read the parent README.txt first for general instructions regarding running examples.
 
 1) Building the Demo
 -------------------------------------------------------------------------------
 
-Using either UNIX or Windows:
+Using either UNIX or Windows, from the command line, run:
 > mvn clean install
 
 
 2) Running the JMS Broker
 -------------------------------------------------------------------------------
 
-The sample requires a JMS broker to be running.  There are two
-ways to get a JMS broker running:
+The sample requires a JMS broker to be running:
 
-2.1) From the command line
-In separate command windows/shells:
+  * From the command line, run:
 > mvn -Pjms.broker
+
+  That will create a new broker (using the default configuration) and will start it.
+
 
 3) Starting the Service
 -------------------------------------------------------------------------------
@@ -36,9 +38,9 @@ In separate command windows/shells:
 3.1) In Jetty
 > cd war ; mvn jetty:run
 
-3.2) From within the OSGi container
+3.2) From within the TIF OSGi container
 karaf@tif> features:install tif-example-jaxrs-jms-http
-   "list | grep TIF" should now show the bundle of the example the server bundle should be in status started
+     "list | grep TIF" should now show the bundle of the example the server bundle should be in an 'Active' State
 
 
 4) Running the Client
@@ -50,6 +52,7 @@ From the command line:
 
 5) Cleaning up
 ---------------------------------------
-To remove the code generated from the WSDL file and the .class
-files, run "mvn clean".
+  * Press ^C in the server and broker windows to stop the running processes
+  * To remove the code generated from the WSDL file and the .class files, run:
+> mvn clean
 

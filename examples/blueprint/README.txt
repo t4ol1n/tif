@@ -18,6 +18,8 @@ But messages are sent to both a file and a stream endpoint.
 Usage
 ===============================================================================
 
+Note: Please read the parent README.txt first for general instructions regarding running examples.
+
 Hot deployment
 --------------
 Start the TIF container

@@ -17,6 +17,8 @@ JSR-250 annotations (@RolesAllowed).
 Usage
 ===============================================================================
 
+Note: Please read the parent README.txt first for general instructions regarding running examples.
+
 1) Building the Demo
 -------------------------------------------------------------------------------
 
@@ -34,10 +36,10 @@ The example can be built using Maven.
 
 2.2) In any web container
 
-Deploy the .war file into your container. Depending on your container settings you may havee to adjust the 
+Deploy the .war file into your container. Depending on your container settings you may have to adjust the 
 url the clients use.
 
-2.3) In the TIF container (Karaf)
+2.3) In the TIF container (OSGi)
 
 > cd to the container dir
 
