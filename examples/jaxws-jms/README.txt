@@ -14,7 +14,7 @@ to switch the transport and can leave the rest of the CXF configuration as-is.
 Usage
 ===============================================================================
 
-Note: Please read the parent README.txt first for general instructions regarding running examples.
+Note: Please follow the parent README.txt first for common build and container setup instructions.
 
 1) Building the Demo
 -------------------------------------------------------------------------------
