@@ -10,6 +10,10 @@ and routings using Camel routes. Camel also offers other CXF integrations. The C
 CXF was chosen here as it offers the easiest integration for an existing CXF endpoint as you only need
 to switch the transport and can leave the rest of the CXF configuration as-is.
 
+This architecture features a standalone JMS broker handling the routing of the SOAP requests and responses.
+The service provider is hosted on the TIF container, while the SOAP over JMS client is a standalone
+Java application.
+
 
 Usage
 ===============================================================================
