@@ -63,3 +63,12 @@ karaf@tif> features:install tif-example-jaxws-jms
   * To remove the code generated from the WSDL file and the .class files, run:
 > mvn clean
 
+
+Known Issues
+===============================================================================
+
+You will see the exception:
+java.lang.NoClassDefFoundError: javax/ws/rs/core/Response
+
+This is a known issue in camel where a converter for jaxrs is loaded even if no jaxrs is in use. It can be ignored.
+
