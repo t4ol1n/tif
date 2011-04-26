@@ -30,7 +30,7 @@ The sample requires a JMS broker to be running:
 > mvn -Pjms.broker
 
   That will create a new broker (using the default configuration) and will start it.
-
+Alternatively, you can start a broker from within the TIF OSGi container, see below for the instructions.
 
 3) Starting the Service
 -------------------------------------------------------------------------------
@@ -39,9 +39,18 @@ The sample requires a JMS broker to be running:
 > cd war ; mvn jetty:run
 
 3.2) From within the TIF OSGi container
-karaf@tif> features:install tif-example-jaxrs-jms-http
-     "list | grep TIF" should now show the bundle of the example the server bundle should be in an 'Active' State
 
+Start the broker if not already started:
+karaf@tif> features:install activemq-spring
+karaf@tif> activemq:create-broker
+
+Install features required by the demo:
+karaf@tif> features:install camel-jaxb
+karaf@tif> features:install camel-jetty
+
+Install and start demo bundles:
+karaf@tif> install mvn:com.talend.if.examples.jaxrs-jms-http/jaxrs-jms-http-common/1.0
+karaf@tif> install mvn:com.talend.if.examples.jaxrs-jms-http/jaxrs-jms-http-server/1.0
 
 4) Running the Client
 -------------------------------------------------------------------------------
