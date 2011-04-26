@@ -21,7 +21,6 @@
     </modules>
 
     <properties>
-        <activemq.version>5.5.0</activemq.version>
         <camel.version>2.7.1</camel.version>
         <cxf.version>2.4.0</cxf.version>
         <felix.version>1.2.0</felix.version>
@@ -88,11 +87,6 @@
                 </exclusions>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>activemq-core</artifactId>
-                <version>${activemq.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-frontend-jaxws</artifactId>
