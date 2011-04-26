@@ -5,10 +5,10 @@ blueprint
    Deploying Camel routes using a simple blueprint descriptor
    
 claimcheck
-   Splitting of a file, moving the mass data over a separate channel and resequecing the parts
+   Splitting of a file, moving the mass data over a separate channel and resequencing the parts
    
 jaxrs-jms-http
-   Publishing and using the same jaxrs implmentation with both http and jms
+   Publishing and using the same jaxrs implementation with both http and jms
 
 jaxws-jms
    Publishing and using a CXF JAX-WS service using SOAP/JMS
@@ -42,7 +42,7 @@ Getting Help
 If the examples don't work as expected or you have problem adapting them to your projects do not hesitate 
 to ask for help.
 
-Talend provides free support on the CXF and Camel mailing lists, irc channels and on the Talend Forums.
+Talend provides free support on the CXF and Camel mailing lists, IRC channels and on the Talend Forums.
 Additionally you can request support from the professional services team.
 
 Apache Support Channels (each site has links to mailing list, irc and issue tracker):
@@ -64,13 +64,13 @@ should rather be placed on Talend channels.
 Design Notes / Common Patterns in the examples
 ===============================================================================
 
-Most examples use a hierarchical Maven project with a top level pom that is also the parent and several 
-subprojects:
+Most examples use a hierarchical Maven project with a top level parent pom with several 
+submodules:
 
 - client : Client code that can typically be called using "mvn exec:java"
-- common : Model objects or generated code that is shared between client and server
+- common : Model objects or generated code shared between client and server
 - server: Server implementation and eventually starters
-- war : Packages common + server into a .war archive to be deployed on a servlet container
+- war : Packages the common and server modules into a .war archive to be deployed on a servlet container
 
 The structure and patterns used in the examples incorporate many best and well-known practices for Maven projects. Some of them are described below for those with little or no Maven background knowledge.
 
