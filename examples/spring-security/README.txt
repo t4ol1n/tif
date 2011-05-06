@@ -48,6 +48,10 @@ url the clients use.
 
 karaf@tif> features:install tif-example-spring-security
 
+(Make sure you've first installed the examples features repository as described in the
+parent README.)
+
+
 When you do "list | grep TIF" you should see the spring security server reported as started.
 
 3) Start the client
