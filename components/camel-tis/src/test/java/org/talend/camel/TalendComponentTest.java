@@ -3,6 +3,10 @@
  */
 package org.talend.camel;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
@@ -38,6 +42,37 @@ public class TalendComponentTest extends CamelTestSupport {
         assertMockEndpointsSatisfied();
         assertFileExists("target/output/out.csv");
     }
+    
+    @Test
+    public void testRunJobWithCustomContextParam() throws Exception {
+        
+        MockEndpoint mock = getMockEndpoint("mock:result");
+        mock.expectedMessageCount(1);       
+        
+        Map<String, Object> headers = new HashMap<String, Object>();
+        headers.put("filename", "target/output/outCtxParam.csv");
+        sendBody("direct:defaultContext", "foo", headers);
+        assertMockEndpointsSatisfied();
+        assertFileExists("target/output/outCtxParam.csv");
+    }
+    
+    @Test
+    public void testRunJobWithNoExistingCustomContextParam() throws Exception {
+        
+        MockEndpoint mock = getMockEndpoint("mock:result");
+        mock.expectedMessageCount(1);       
+        
+        Map<String, Object> headers = new HashMap<String, Object>();
+        headers.put("noExistingTalendParam", "bar");
+        sendBody("direct:defaultContext", "foo", headers);
+        assertMockEndpointsSatisfied();
+        assertFileExists("target/output/out.csv");
+    }
+    
+    public static void assertFileExists(String filename) {
+            File file = new File(filename).getAbsoluteFile();
+            assertTrue("File " + filename + " should exist", file.exists());
+        } 
 
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {
