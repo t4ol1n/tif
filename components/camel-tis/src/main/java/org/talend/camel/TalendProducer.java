@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.Exchange;
+import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.impl.DefaultProducer;
 import org.apache.camel.util.ObjectHelper;
 import org.slf4j.Logger;
@@ -57,6 +58,11 @@ public class TalendProducer extends DefaultProducer {
 		LOG.debug("Invoking Talend job '" + jobInstance.getClass().getCanonicalName() 
 				+ ".runJob(String[] args)' with args: " + args.toString());
 		
-		ObjectHelper.invokeMethod(jobMethod, jobInstance, new Object[] { args.toArray(EMPTY_STRING_ARRAY) });
+		Object result = ObjectHelper.invokeMethod(jobMethod, jobInstance, new Object[] { args.toArray(EMPTY_STRING_ARRAY) });
+		if (result != null && result instanceof Integer && ((Integer) result).intValue() != 0) {
+			throw new RuntimeCamelException("Execution of Talend job '" 
+					+ jobInstance.getClass().getCanonicalName() + "' with args: "
+					+ args.toString() + "' failed, see stderr for details"); // Talend logs errors using System.err.println
+		}
 	}
 }
