@@ -40,17 +40,17 @@ Alternatively, you can start a broker from within the TIF OSGi container, see be
 
 3.2) From within the TIF OSGi container
 
+Make sure you've first installed the examples features repository 
+as described in the parent README.
+
 Start the broker if not already started:
 karaf@tif> features:install activemq-spring
 karaf@tif> activemq:create-broker
 
-Install features required by the demo:
-karaf@tif> features:install camel-jaxb
-karaf@tif> features:install camel-jetty
-
 Install and start demo bundles:
-karaf@tif> install mvn:com.talend.if.examples.jaxrs-jms-http/jaxrs-jms-http-common/1.0
-karaf@tif> install mvn:com.talend.if.examples.jaxrs-jms-http/jaxrs-jms-http-server/1.0
+karaf@tif> features:install tif-example-jaxrs-jms-http
+
+
 
 4) Running the Client
 -------------------------------------------------------------------------------

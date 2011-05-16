@@ -60,6 +60,9 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
+		<webAppConfig>
+			<contextPath>/spring-security</contextPath>
+		</webAppConfig>
                     <connectors>
                         <connector
                                 implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

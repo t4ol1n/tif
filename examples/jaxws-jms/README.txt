@@ -54,7 +54,10 @@ karaf@tif> features:install activemq-spring
 karaf@tif> activemq:create-broker
 
 Install and start the demo server bundle:
-karaf@tif> install mvn:com.talend.if.examples.jaxws-jms/jaxws-jms-server/1.0
+karaf@tif> features:install tif-example-jaxws-jms 
+
+(Make sure you've first installed the examples features repository as described in the
+parent README.)
 
 
 4) Running the Client
