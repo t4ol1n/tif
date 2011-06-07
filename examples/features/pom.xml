@@ -18,10 +18,10 @@
     <name>TIF :: Examples :: features</name>
     
     <properties>
-        <tif.version>2.7.1.0</tif.version>
+        <tif.version>2.7.2.0</tif.version>
         <activemq.version>5.5.0</activemq.version>
         <cxf.version>2.4.0</cxf.version>
-        <camel.version>2.7.1</camel.version>
+        <camel.version>2.7.2</camel.version>
         <karaf.version>2.2.0</karaf.version>
         <spring.version>3.0.5.RELEASE</spring.version>
         <spring-security.version>3.0.5.RELEASE</spring-security.version>

@@ -67,9 +67,9 @@
     </feature>
 
     <feature name='tif-camel-cxf' version="${project.version}" resolver='(obr)'>
-        <feature version='2.4.0'>cxf</feature>
-        <feature version='2.7.1'>camel-spring</feature>
-        <bundle>mvn:org.apache.camel/camel-cxf/2.7.1</bundle>
+        <feature version="${cxf.version}">cxf</feature>
+        <feature version="${camel.version}">camel-spring</feature>
+        <bundle>mvn:org.apache.camel/camel-cxf/${camel.version}</bundle>
     </feature>
 
 </features>
