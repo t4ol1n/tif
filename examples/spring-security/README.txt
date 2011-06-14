@@ -57,6 +57,8 @@ When you do "list | grep TIF" you should see the spring security server reported
 3) Start the client
 -------------------------------------------------------------------------------
 
+> cd client
+
 > mvn exec:java -Dexec.mainClass=client.JaxWsClient
 
 The Client should report some service calls that were successful and some that were denied as expected.
