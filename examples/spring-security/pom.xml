@@ -33,6 +33,7 @@
         <log4j.version>1.2.16</log4j.version>
         <junit.version>4.8.2</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <http.port>8080</http.port>
     </properties>
 
     <dependencyManagement>
@@ -205,6 +206,9 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>1.2</version>
+                    <configuration>
+                      <commandlineArgs>http.port ${http.port}</commandlineArgs>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

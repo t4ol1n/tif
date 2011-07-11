@@ -26,17 +26,14 @@ import org.apache.log4j.Logger;
  */
 public final class RESTClient {
 
-	private final Logger logger = Logger.getLogger(JaxWsClient.class);
+    private final Logger logger = Logger.getLogger(JaxWsClient.class);
 
-	final static String address = "http://localhost:8080/spring-security/HelloWorld";
+    private String address;
 
-    public static void main(String[] args) throws Exception {
-    	System.out.println("Using CXF JAX-RS proxy to invoke on HelloWorld service");
-        RESTClient client = new RESTClient();
-        client.sayHelloAsAdmin();
-        client.sayHelloAsUser();
+    public RESTClient(int port) {
+        address = "http://localhost:" + port + "/spring-security/HelloWorld";
     }
-	
+
     public void sayHelloAsAdmin() throws Exception {
         HelloWorld service = createServiceProxy("jim", "jimspassword");
         System.out.println("Using HelloServiceRest with admin priviliges");
@@ -80,7 +77,7 @@ public final class RESTClient {
         }
     }
     
-	public HelloWorld createServiceProxy(String username, String password) {
+    public HelloWorld createServiceProxy(String username, String password) {
         HelloWorld service = JAXRSClientFactory.create(address, HelloWorld.class, username, password, null);
         WebClient.getConfig(service).getHttpConduit().getClient().setReceiveTimeout(100000000);
         WebClient.getConfig(service).getOutInterceptors().add(new LoggingOutInterceptor());
@@ -96,6 +93,20 @@ public final class RESTClient {
         for (Map.Entry<Integer, User> entry : users.entrySet()) {
             System.out.println(entry.getValue().getName());
         }
+    } 
+
+
+    public static void main(String[] args) throws Exception {
+        int port = args.length == 2 && "http.port".equals(args[0]) 
+                   ? Integer.valueOf(args[1]) : 8080;
+
+
+    	System.out.println("Using CXF JAX-RS proxy to invoke on HelloWorld service");
+        RESTClient client = new RESTClient(port);
+        client.sayHelloAsAdmin();
+        client.sayHelloAsUser();
     }
+	
+    
 
 }

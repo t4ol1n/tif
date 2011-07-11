@@ -26,15 +26,14 @@ import com.example.customerservice.NoSuchCustomerException;
 public class JaxWsClient {
 
     private final Logger logger = Logger.getLogger(JaxWsClient.class);
-
-    public static void main(String[] args) throws NoSuchCustomerException {
-        System.setProperty("org.apache.cxf.Logger", "org.apache.cxf.common.logging.Log4jLogger");
-        new JaxWsClient().run();
+    private String address;
+    public JaxWsClient(int port) {
+        address = "http://localhost:" + port + "/spring-security/CustomerServicePort";
     }
 
     private void run() {
         JaxWsProxyFactoryBean factoryBean = new JaxWsProxyFactoryBean();
-        factoryBean.setAddress("http://localhost:8080/spring-security/CustomerServicePort");
+        factoryBean.setAddress(address);
         factoryBean.setServiceClass(CustomerService.class);
         CustomerService customerService = factoryBean.create(CustomerService.class);
 
@@ -106,4 +105,11 @@ public class JaxWsClient {
         }
     }
 
+    public static void main(String[] args) throws NoSuchCustomerException {
+        int port = args.length == 2 && "http.port".equals(args[0]) 
+                   ? Integer.valueOf(args[1]) : 8080;
+
+        System.setProperty("org.apache.cxf.Logger", "org.apache.cxf.common.logging.Log4jLogger");
+        new JaxWsClient(port).run();
+    }
 }
