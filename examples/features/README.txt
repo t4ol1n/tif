@@ -5,7 +5,7 @@ holds the Karaf-based features repository for each of the examples.
 This file simplifies deployment of the examples onto the Talend Integration
 Factory OSGi container.
 
-See http://karaf.apache.org/manual/2.1.99-SNAPSHOT/users-guide/provisioning.html 
+See http://karaf.apache.org/manual/2.2.2/users-guide/provisioning.html 
 for more details about this file, and read the parent README for
 proper installation instructions of this file onto the Talend
 Integration Factory OSGi container.

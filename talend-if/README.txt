@@ -25,7 +25,7 @@ Short introduction to TIF and Karaf
 ===========================
 
 Make sure to read the Karaf getting started:
-http://karaf.apache.org/manual/2.2.1-SNAPSHOT/quick-start.html
+http://karaf.apache.org/manual/2.2.2/quick-start.html
 
 > list
 
