@@ -42,11 +42,15 @@ Alternatively, you can start a broker from within the TIF OSGi container, see be
 3) Starting the Service
 -------------------------------------------------------------------------------
 
-3.1) In Jetty
+3.1) Standalone
   * From the command line, run:
 > cd server ; mvn exec:java
 
-3.2) From within the TIF OSGi container command line, run:
+3.2) In Jetty
+  * From the command line, run:
+> cd war ; mvn jetty:run
+
+3.3) From within the TIF OSGi container command line, run:
 
 Start the broker if not already started:
 
