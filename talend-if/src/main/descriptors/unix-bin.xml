@@ -119,21 +119,6 @@
             <outputDirectory>/container/system</outputDirectory>
         </fileSet>
 
-        <!-- Copy Examples -->
-        <fileSet>
-            <directory>${basedir}/../examples</directory>
-            <outputDirectory>/examples</outputDirectory>
-            <excludes>
-                <!-- Exclude maven build target directory -->
-                <exclude>**/target/**</exclude>
-                <!-- Exclude Eclipse files and directories -->
-                <exclude>**/.settings/**</exclude>
-                <exclude>**/.project</exclude>
-                <exclude>**/.classpath</exclude>
-                <!-- Exclude Intellij IDEA files and directories -->
-                <exclude>**/*.i??</exclude>
-            </excludes>
-        </fileSet>
     </fileSets>
 
     <files>
