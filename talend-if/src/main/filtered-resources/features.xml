@@ -6,14 +6,17 @@
     -->
 
     <repository>mvn:org.apache.karaf.assemblies.features/standard/${karaf.version}/xml/features</repository>
-    <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
+    <descriptor>mvn:org.apache.karaf.assemblies.features/enterprise/${karaf.version}/xml/features</descriptor>
     <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
+    <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
     <repository>mvn:org.apache.activemq/activemq-karaf/${activemq.version}/xml/features</repository>
 
     <feature name="tif-core" version="${project.version}" resolver='(obr)'>
+        <feature version="${cxf.version}">cxf</feature>
+        <feature version="${activemq.version}">activemq</feature>
         <feature version="${camel.version}">camel</feature>
         <feature version="${camel.version}">camel-blueprint</feature>
-        <feature version="${project.version}">tif-camel-cxf</feature>
+        <feature version="${camel.version}">camel-cxf</feature>
         <feature version="${camel.version}">camel-jms</feature>
     </feature>
     <feature name="tif-test" version="${project.version}" resolver='(obr)'>
@@ -64,11 +67,6 @@
         <feature version='${project.version}'>tif-core</feature>
         <feature version="${camel.version}">camel-syslog</feature>
         <feature version="${camel.version}">camel-exec</feature>
-    </feature>
-
-    <feature name='tif-camel-cxf' version="${project.version}" resolver='(obr)'>
-        <feature version="${cxf.version}">cxf</feature>
-        <feature version="${camel.version}">camel-cxf</feature>
     </feature>
 
 </features>
