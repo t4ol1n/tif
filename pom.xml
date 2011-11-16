@@ -54,8 +54,8 @@
 
     <properties>
         <activemq.version>5.5.0</activemq.version>
-        <camel.version>2.8.2-SNAPSHOT</camel.version>
-        <cxf.version>2.5.0-SNAPSHOT</cxf.version>
+        <camel.version>2.8.2</camel.version>
+        <cxf.version>2.5.0</cxf.version>
         <karaf.version>2.2.4</karaf.version>
     </properties>
 
