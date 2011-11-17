@@ -153,7 +153,8 @@
                                 <feature>camel-bam</feature>
                                 <feature>camel-bean-validator</feature>
                                 <feature>camel-bindy</feature>
-                                <feature>camel-cometd</feature>
+                                <!-- Disable feature with SNAPSHOT depenency -->
+                                <!-- feature>camel-cometd</feature -->
                                 <feature>camel-csv</feature>
                                 <feature>camel-dozer</feature>
                                 <!-- Disable this feature as there is a mistake in, see CAMEL-3637 -->
