@@ -103,6 +103,8 @@
                             org.aopalliance.aop
                         </Import-Package>
                         <Require-Bundle>
+                            org.apache.camel.camel-cxf,
+                            org.apache.camel.camel-cxf-transport,
                             org.apache.cxf.bundle,
                             org.springframework.beans,
                             org.apache.camel.camel-cxf,
