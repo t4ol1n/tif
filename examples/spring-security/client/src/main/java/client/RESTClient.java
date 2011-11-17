@@ -93,8 +93,7 @@ public final class RESTClient {
         for (Map.Entry<Integer, User> entry : users.entrySet()) {
             System.out.println(entry.getValue().getName());
         }
-    } 
-
+    }
 
     public static void main(String[] args) throws Exception {
         int port = args.length == 2 && "http.port".equals(args[0]) 
@@ -106,7 +105,4 @@ public final class RESTClient {
         client.sayHelloAsAdmin();
         client.sayHelloAsUser();
     }
-	
-    
-
 }

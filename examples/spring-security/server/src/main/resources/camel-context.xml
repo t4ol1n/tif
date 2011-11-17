@@ -82,17 +82,10 @@
         </property>
     </bean>
 
-    <!--
-          Camel routes from addresses on the servlet to rest and jaxws servers
-     -->
-
-    <bean id="stripPrefix" class="server.StripPrefixProcessor">
-    </bean>
-
+    <!-- Camel routes from addresses on the servlet to rest and jaxws servers -->
     <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" trace="false">
         <route>
             <from uri="servlet:///HelloWorld?matchOnUriPrefix=true"/>
-            <bean ref="stripPrefix"/>
             <to uri="direct:HelloWorldRestServerEndpoint"/>
         </route>
         <route>
