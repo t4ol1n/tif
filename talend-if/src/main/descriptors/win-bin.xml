@@ -7,6 +7,7 @@
     <id>win-bin</id>
 
     <formats>
+        <format>dir</format>
         <format>zip</format>
     </formats>
 
@@ -63,7 +64,7 @@
                 <include>start.bat</include>
                 <include>stop.bat</include>
             </includes>
-            <fileMode>0755</fileMode>
+            <fileMode>0644</fileMode>
         </fileSet>
 
         <!-- Copy over unix bin/* separately to get the correct file mode -->
@@ -142,7 +143,7 @@
             <source>${basedir}/target/dependencies/win/apache-karaf-${karaf.version}/bin/karaf.bat</source>
             <outputDirectory>/container/bin/</outputDirectory>
             <destName>tif.bat</destName>
-            <fileMode>0755</fileMode>
+            <fileMode>0644</fileMode>
             <lineEnding>dos</lineEnding>
         </file>
         <file>

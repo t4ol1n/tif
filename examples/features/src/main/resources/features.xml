@@ -41,8 +41,8 @@
         <feature version="${camel.version}">camel-servlet</feature>
         <feature>http</feature>
         
-        <bundle>mvn:org.springframework.security/spring-security-web/3.0.5.RELEASE</bundle>
-        <bundle>mvn:org.springframework/spring-web/3.0.5.RELEASE</bundle>
+        <bundle>mvn:org.springframework.security/spring-security-web/3.0.6.RELEASE</bundle>
+        <bundle>mvn:org.springframework/spring-web/3.0.6.RELEASE</bundle>
         
         <bundle>mvn:com.talend.if.examples.spring-security/spring-security-common/${project.version}</bundle>
         <bundle>mvn:com.talend.if.examples.spring-security/spring-security-server/${project.version}</bundle>

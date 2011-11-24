@@ -14,7 +14,7 @@
     </parent>
 
     <artifactId>spring-security-client</artifactId>
-    <packaging>bundle</packaging>
+    <packaging>jar</packaging>
     <name>TIF :: Examples :: spring-security :: client</name>
 
     <dependencies>
@@ -77,21 +77,5 @@
             <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Require-Bundle>org.apache.cxf.bundle,org.springframework.beans</Require-Bundle>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

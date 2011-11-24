@@ -43,6 +43,10 @@
         <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
         <dependency>
@@ -69,7 +73,7 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>*,org.apache.camel.osgi</Import-Package>
-                        <Require-Bundle>org.apache.cxf.bundle,org.springframework.beans,org.apache.activemq.activemq-core,org.apache.camel.camel-cxf</Require-Bundle>
+                        <Require-Bundle>org.apache.camel.camel-cxf,org.apache.camel.camel-cxf-transport,org.apache.cxf.bundle,org.springframework.beans,org.apache.activemq.activemq-core,org.apache.camel.camel-cxf</Require-Bundle>
                     </instructions>
                 </configuration>
             </plugin>
