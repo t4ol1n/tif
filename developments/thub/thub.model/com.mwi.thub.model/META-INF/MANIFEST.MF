@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Export-Package: META-INF.com.mwi.thub.model,com.mwi.thub.model;uses:="
+ org.apache.commons.lang.builder,org.apache.camel.dataformat.bindy.ann
+ otation"
+Built-By: taolin
+Build-Jdk: 1.6.0_25
+Bundle-Version: 1.0.0.SNAPSHOT
+Tool: Bnd-0.0.357
+Bundle-Name: THub :: Model Bundle
+Bnd-LastModified: 1323335424859
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.mwi.thub.model
+Import-Package: META-INF.com.mwi.thub.model,com.mwi.thub.model,org.apa
+ che.camel.dataformat.bindy.annotation;version="2.2",org.apache.common
+ s.lang.builder;version="2.4"
+
